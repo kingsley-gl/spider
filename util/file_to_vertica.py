@@ -1,169 +1,135 @@
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+# -*- coding:utf-8 -*-
+# @Time    : 2018/03/19
+# @Author  : kingsley kwong
+# @Site    :
+# @File    : file_to_vertica.py
+# @Software: vip spider
+# @Function:
+
 import os
-import pyodbc
-import pandas as pd
+from .exceptions import DataBaseExecuteError
 import time
 import datetime
 import sys
-import socket
-import logging
-from GetEngine import *
+from util.logger import log
 import ConfigParser
 reload(sys)
 sys.setdefaultencoding('utf8')
-# sys.path.append('../')
+
+
 def get_now():
-    return  time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+    return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
+
+
 config = ConfigParser.ConfigParser()
 config.read('vip.cfg')
-class vip_to_vertica:
-    def __init__(self):
-        # self.log.info( os.getcwd()
-        # 绝对路径转相对路径
-        # self.log.info( os.path.relpath("d:/MyProj/MyFile.txt")
-        #..\MyProj\MyFile.txt
-        # 相对路径转绝对路径
-        # path ='..\\sycm'
-        # self.log.info( os.path.abspath(path)
-        # sys.path.append(path)
-        # from GetEngine import *
-        engine = GetEngine(
-            host=config.get('VerticaDB_Config', 'host'),
-            port=config.get('VerticaDB_Config', 'port'),
-            user=config.get('VerticaDB_Config', 'user'),
-            passwd=config.get('VerticaDB_Config', 'passwd'),
-            db=config.get('VerticaDB_Config', 'db'),
-        )
-        self.engine_vertica = engine.get_engine()
-        if not os.path.exists(r'D:\share\vip_data\log\\'):
-            os.makedirs(r'D:\share\vip_data\log\\')
-        # 日志文件以及格式
-        logging.basicConfig(
-            level=logging.DEBUG,
-            format='%(asctime)s %(name)-8s %(levelname)-4s %(message)s',
-            datefmt='%Y/%m/%d %H:%M:%S',
-            filename=r'D:\share\vip_data\log\BI.VIP.%s.%d.log' % (datetime.date.today().strftime('%Y-%m-%d'), time.time()),
-            filemode='w'
-        )
-        console = logging.StreamHandler()
-        console.setLevel(logging.INFO)
-        formatter = logging.Formatter('%(name)-8s: %(levelname)-4s %(message)s')
-        console.setFormatter(formatter)
-        # console log setting
-        logging.getLogger('').addHandler(console)
-        self.log = logging.getLogger('BI VIP file to vertica')
-        # selenium_logger = logging.getLogger('selenium.webdriver.remote.remote_connection')
-        # selenium_logger.setLevel(logging.ERROR)
 
-    def get_folder_address(self):
-        """
-        入库前，文档存放在 \\192.168.7.138
-        """
-        # if socket.gethostbyname(socket.getfqdn(socket.gethostname())) == '192.168.7.35':
-        return "D:\\share"
-        # else:
-        #     return "\\\\192.168.7.35\\share"
 
-    def to_vertica_tmp1(self,report_name):
-        """
-        文本写入数据仓库
-        :param report_name:报表名称
-        :return:
-        """
-        file_path = self.get_folder_address() + "\\vip_data\\%s\\"% report_name;
-        file_path_deleted = self.get_folder_address() + "\\vip_data\\removed\\";
-        file_list = os.listdir(file_path)
-        if not os.path.exists(file_path_deleted):
-            os.makedirs(file_path_deleted)
-        #清空临时表
-        table_name = '%s_tmp1'%report_name
-        truncate_sql ="TRUNCATE TABLE  %s "%table_name
-        vertica_cur = self.engine_vertica.cursor()
-        vertica_cur.execute(truncate_sql)
-        self.engine_vertica.commit()
-        for fl in file_list:
-            file_name = os.path.join(file_path,fl)
-            remove_name = os.path.join(file_path_deleted,fl)
-            # file_name = u'%s%s'%(file_path,fl)
-            # remove_name =u'%s%s'%(file_path_deleted,fl)
-            sql = ''
-            self.log.info( u'{} {}  to {}_tmp1'.format(get_now(),fl,report_name))
-            sql = "COPY %s  FROM LOCAL '%s' DELIMITER ',' AUTO "%(table_name,file_name) 
-            vertica_cur = self.engine_vertica.cursor()
-            vertica_cur.execute(sql)
-            self.engine_vertica.commit()
-            if vertica_cur.rowcount >0:
-                copy_cmd = 'copy /Y "%s" "%s"' % (file_name, remove_name)
-                os.popen(copy_cmd)
-                os.remove(file_name)
-            else :
-                self.log.info( '%s not removed'%file_name)
-        self.log.info( '%s %s to_vertica_tmp1 OK'%(get_now(),report_name))
+class FileToDB(object):
+    '''文件内数据存储到数据库'''
+    def __init__(self, db_engine, files_path):
+        self.db_engine = db_engine
+        self.files_path = files_path
+        self._truncate_sql = lambda x: "TRUNCATE TABLE  %s " % x
+        self.debug = log.getLogger('spider_debug')
+        self.info = log.getLogger('spider_info')
 
-    def to_vertica_tmp2(self,report_name):
-        """
-        数据从临时表1去重，插入临时表2
-        :param report_name:bia表名
-        :return:
-        """
-        #tmp1 insert distinct data into tmp2
-        #清空临时表
-        temp_name = '%s_tmp1'%report_name
-        table_name = '%s_tmp2'%report_name
-        truncate_sql ="TRUNCATE TABLE  %s "%table_name
-        vertica_cur = self.engine_vertica.cursor()
-        vertica_cur.execute(truncate_sql)
-        self.engine_vertica.commit()
-        self.log.info( u'%s %s_tmp1 to %s_tmp2'%(get_now(),report_name,report_name))
-        sql ="INSERT INTO %s "\
-             "SELECT * FROM %s a "\
-             "WHERE EXISTS (SELECT 1 FROM (SELECT activeCode FROM %s GROUP BY activeCode HAVING count(*) = 1) b " \
-             "WHERE a.activeCode= b.activeCode ) ;"\
-             "INSERT INTO %s "\
-             "SELECT DISTINCT *   FROM %s a "\
-             "WHERE NOT EXISTS (SELECT 1 FROM (SELECT activeCode FROM %s GROUP BY activeCode HAVING count(*) = 1) b " \
-             "WHERE a.activeCode= b.activeCode ) ;"%(table_name,temp_name,temp_name,table_name,temp_name,temp_name)
-        # self.log.info( sql)
-        vertica_cur = self.engine_vertica.cursor()
-        vertica_cur.execute(sql)
-        self.engine_vertica.commit()
-        self.log.info( '%s %s to_vertica_tmp2 OK'%(get_now(),report_name))
+    def _class_logger(*dargs, **dkwargs):
+        '''日志装饰器'''
+        def decorator(func):
+            def inner(self, *args, **kwargs):
+                if dkwargs['level'] == 'debug':
+                    log = self.info.debug
+                elif dkwargs['level'] == 'info':
+                    log = self.info.info
+                if kwargs.has_key('tb_name'):
+                    log('%s %s' % (dkwargs['msg'], kwargs['tb_name']))
+                else:
+                    log('%s' % dkwargs['msg'])
+                func(self, *args, **kwargs)
+                if kwargs.has_key('tb_name'):
+                    log('%s %s done' % (dkwargs['msg'], kwargs['tb_name']))
+                else:
+                    log('%s done' % dkwargs['msg'])
+            return inner
+        return decorator
 
-    def to_vertica(self,report_name):
-        """
-        数据从临时表2插入正式表
-        :param report_name:表名
-        :return:
-        """
-        temp_name = '%s_tmp2'%report_name
-        table_name = report_name + '_test'
+    @_class_logger(level='debug', msg='setting local veriable')
+    def _set_table(self, tb_name):
+        self._tmp1 = tb_name + '_tmp1'
+        self._tmp2 = tb_name + '_tmp2'
+        self.tb = tb_name
+        self.tb_test = tb_name + '_test'
+
+    @_class_logger(level='info', msg='files to vertica table')
+    def files_to_verti(self, tb_name):
+        self._set_table(tb_name)
+        try:
+            self._files_to_tmp1()
+            self._tmp1_to_tmp2()
+            self._tmp2_to_verti()
+        except DataBaseExecuteError as e:
+            self.info.error(e)
+
+    @_class_logger(level='debug', msg='truncate table')
+    def _truncate_table(self, tb_name):
+        try:
+            with self.db_engine.cursor() as crsr:
+                crsr.execute(self._truncate_sql(tb_name))
+        except Exception as e:
+            raise DataBaseExecuteError('executing function "%s._truncate_table" caught %s'
+                                       % (self.__class__.__name__, e))
+
+    @_class_logger(level='info', msg='file to tmp1 start')
+    def _files_to_tmp1(self):
+        try:
+            self._truncate_table(tb_name=self._tmp1)
+            file_path_prefix = self.files_path + '\\%s' % (self.tb)
+            file_list = set(os.listdir(file_path_prefix))
+            for file_name in file_list:
+                file_name = os.path.join(file_path_prefix, file_name)
+                sql = "COPY %s  FROM LOCAL '%s' DELIMITER ',' AUTO " % (self._tmp1, file_name)
+                with self.db_engine.cursor() as crsr:
+                    crsr.execute(sql)
+        except Exception as e:
+            raise DataBaseExecuteError('executing function "%s._files_to_tmp1" caught %s'
+                                       % (self.__class__.__name__, e))
+
+    @_class_logger(level='info', msg='tmp1 to tmp2 start')
+    def _tmp1_to_tmp2(self):
+        try:
+            self._truncate_table(tb_name=self._tmp2)
+            sql = "INSERT INTO %s " \
+                  "SELECT * FROM %s a " \
+                  "WHERE EXISTS (SELECT 1 FROM (SELECT activeCode FROM %s GROUP BY activeCode HAVING count(*) = 1) b " \
+                  "WHERE a.activeCode= b.activeCode ) ;" \
+                  "INSERT INTO %s " \
+                  "SELECT DISTINCT *   FROM %s a " \
+                  "WHERE NOT EXISTS (SELECT 1 FROM (SELECT activeCode FROM %s GROUP BY activeCode HAVING count(*) = 1) b " \
+                  "WHERE a.activeCode= b.activeCode ) ;" % (
+                  self._tmp2, self._tmp1, self._tmp1, self._tmp2, self._tmp1, self._tmp1)
+            with self.db_engine.cursor() as crsr:
+                crsr.execute(sql)
+        except Exception as e:
+            raise DataBaseExecuteError('executing function "%s._tmp1_to_tmp2" caught %s' % (self.__class__.__name__, e))
+
+    @_class_logger(level='info', msg='tmp2 to vertica start')
+    def _tmp2_to_verti(self):
         delete_sql ="DELETE FROM %s "\
                     "WHERE EXISTS (SELECT 1 FROM %s b "\
-                    "WHERE %s.activeCode = b.activeCode )"%(table_name,temp_name,table_name)
+                    "WHERE %s.activeCode = b.activeCode )" % (self.tb_test, self._tmp2, self.tb_test)
+
         sql = '''INSERT INTO %s 
               SELECT a.*,SYSDATE() FROM %s a 
-              WHERE NOT EXISTS(SELECT 1 FROM %s b WHERE a.activeCode = b.activeCode )'''%(table_name,temp_name,table_name)
-        self.log.info( u'%s %s_tmp2 to %s'%(get_now(),report_name,report_name))
-        #删除旧数据
-        vertica_cur = self.engine_vertica.cursor()
-        vertica_cur.execute(delete_sql)
-        self.engine_vertica.commit()
-        #插入新数据
-        vertica_cur = self.engine_vertica.cursor()
-        vertica_cur.execute(sql)
-        self.engine_vertica.commit()
-        self.log.info( '%s ----- %s to_vertica OK'%(get_now(),report_name))
+              WHERE NOT EXISTS(SELECT 1 FROM %s b WHERE a.activeCode = b.activeCode )'''\
+              % (self.tb_test, self._tmp2, self.tb_test)
+        sqls = [delete_sql, sql]
+        try:
+            for sql in sqls:
+                with self.db_engine.cursor() as crsr:
+                    crsr.execute(sql)
+        except Exception as e:
+            raise DataBaseExecuteError('executing function "%s._tmp2_to_verti" caught %s'
+                                       % (self.__class__.__name__, e))
 
-def main():
-    vip = vip_to_vertica()
-    # table_names = ['vip_active','vip_active_day','vip_active_hour','vip_return','vip_goods','vip_barCode','vip_region','vip_behind_goods']
-    table_names = ['vip_active_day','vip_active_hour','vip_active','vip_goods']
-    try:
-        for table_name in table_names:
-            vip.to_vertica_tmp1(table_name)
-            vip.to_vertica_tmp2(table_name)
-            vip.to_vertica(table_name)
-    except Exception as ex:
-        vip.log.info(ex)
-if __name__ == '__main__':
-    main()

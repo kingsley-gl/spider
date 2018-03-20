@@ -9,12 +9,13 @@
 
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import time,datetime
+import time
+import datetime
 from util.delete_dup_file import delete_duplicate_files
 import os
 TIMING = 2.0
-
 dangqi_period_date = []
+
 
 def download_and_process(user_id, shop, login_user,
                          password, rawFileSavePath,
@@ -177,10 +178,10 @@ def download_and_process(user_id, shop, login_user,
                 break
 
 
-        if crawlDates:  #指定日期
-            for crawlDate in crawlDates:    #按日期爬取
+        if crawlDates:  # 指定日期
+            for crawlDate in crawlDates:    # 按日期爬取
                 crawlDate = crawlDate.replace('-','')
-                date_of_dangqi = set(map(lambda x:x if crawlDate in x else None,options))   #指定日期档期
+                date_of_dangqi = set(map(lambda x:x if crawlDate in x else None,options))   # 指定日期档期
                 # print(date_of_dangqi)
                 all_of_dangqi.update(date_of_dangqi)
                 map(send_dangqi_keys,date_of_dangqi)
@@ -190,27 +191,7 @@ def download_and_process(user_id, shop, login_user,
 
     print('sales download end')
 
-    delete_duplicate_files(rawFileSavePath) # 删除重复下载文件
+    delete_duplicate_files(rawFileSavePath)  # 删除重复下载文件
     b.close()
-    # for targetOption in all_of_dangqi:
-    #     if targetOption:
-    #         while True:
-    #             try:
-    #                 process_andSaveAs_csv(shop, targetOption, rawFileSavePath, csvSaveRootPath)
-    #                 # writeDataBase()
-    #                 # 当日任务已完成，更新状态
-    #                 dateTaskFile = rawFileSavePath + r'\{}_task.data'.format(datetime.date.today().strftime('%Y-%m-%d'))
-    #                 f = open(dateTaskFile,'rb')
-    #                 taskDict = pickle.load(f)
-    #                 f.close()
-    #                 taskDict[targetOption] = 'y'
-    #                 f = open(dateTaskFile, 'wb')
-    #                 pickle.dump(taskDict, f)
-    #                 f.close()
-    #                 break
-    #             except Exception, e:
-    #                 print e
-    #                 traceback.print_exc()
-    #                 time.sleep(20)
 
 

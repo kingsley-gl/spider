@@ -80,10 +80,6 @@ def download_and_process(user_id, shop, login_user, password,
             b.find_element_by_xpath(
                 "//div[@id='compass-app-body']/div[2]/div/div[3]/div/div/div/div/div[3]/div/div/div/label/span/span").click()   #点击：条形码方框
             time.sleep(TIMING)
-
-            # b.find_element_by_xpath(r'//*[@id="sidebar-nav"]/li[3]/a').click()  # 点击：档期
-            # time.sleep(1)
-            # b.find_element_by_xpath(r'//*[@id="sidebar-nav"]/li[3]/ul/li[1]/a/span').click()    # 点击：档期数据查询
             break
         except Exception as e:
             print 'Exception is %s'%e

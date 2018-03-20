@@ -1,8 +1,5 @@
 @echo off
-echo 正在运行
+echo 正在准备运行爬虫
 py -2 processing_run.py
-echo 正在写入数据库
-py -2 .\util\file_to_vertica.py
-echo 运行完成
-echo 请按任意键退出 & pause
+echo 爬虫运行完成 & pause
 exit

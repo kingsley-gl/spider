@@ -86,7 +86,7 @@ class ExtractData(object):
         '''
 
         path = self.save_file_path + r'\%s' % self.table + r'\%s_%s.%d' % (
-        self.table+'_test', datetime.date.today().strftime('%Y-%m-%d'), time.time()) + '.csv'
+        self.table, datetime.date.today().strftime('%Y-%m-%d'), time.time()) + '.csv'
         if not os.path.exists(self.save_file_path + ur'\%s' % self.table):
             os.makedirs(self.save_file_path + ur'\%s' % self.table)
         result.to_csv(path_or_buf=path, header=False, index=False, encoding='utf-8')

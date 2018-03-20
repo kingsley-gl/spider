@@ -7,13 +7,13 @@
 # @Software: vip spider
 # @Function:
 
-from util import GetEngine
+from util.get_engine import GetDBEngine
 import pandas as pd
 from multiprocessing import Process
 from util.csv_processing import SaveAsCSV
 from spider.vip_spider_download_salesfile import download_and_process as d_sale
 from spider.vip_spider_download_uvfile import download_and_process as d_uv
-from spider.vip_spider_download_salesfile import dangqi_period_date
+from util.file_to_vertica import FileToDB
 import ConfigParser
 import os
 
@@ -22,17 +22,10 @@ config = ConfigParser.ConfigParser()
 config.read('vip.cfg')
 raw_file_save_path = config.get('Save_Path_Config', 'save_file_path_root')
 export_file_path = config.get('Export_Path_Config', 'export_path_root')
-engine = GetEngine.GetEngine(
-    host=config.get('VerticaDB_Config', 'host'),
-    port=config.get('VerticaDB_Config', 'port'),
-    user=config.get('VerticaDB_Config', 'user'),
-    passwd=config.get('VerticaDB_Config', 'passwd'),
-    db=config.get('VerticaDB_Config', 'db'),
-)
+engine=GetDBEngine(config)
 if __name__ == '__main__':
-
-
-    engine_vertica = engine.get_engine()
+    print(u'爬虫运行开始')
+    engine_vertica = engine.vertica_engine()
     sql_users = r'select * from sycm_user where user_id>=7000 and user_id<8000 and status=0'
     df_users = pd.read_sql(sql_users, engine_vertica)
 
@@ -72,19 +65,19 @@ if __name__ == '__main__':
                                'crawlDates':crawlDates,
                                 })
 
-    p_uv = Process(target=d_uv,kwargs={'user_id':user_id,
-                                 'shop':shop,
-                                 'login_user':login_user,
-                                 'password':password,
-                                 'rawFileSavePath':raw_file_save_path,
-                                 'csvSaveRootPath':export_file_path,
-                                'crawlDays':crawlDays,
-                               'crawlDates':crawlDates})
+    p_uv = Process(target=d_uv, kwargs={'user_id': user_id,
+                                 'shop': shop,
+                                 'login_user': login_user,
+                                 'password': password,
+                                 'rawFileSavePath': raw_file_save_path,
+                                 'csvSaveRootPath': export_file_path,
+                                'crawlDays': crawlDays,
+                               'crawlDates': crawlDates})
     p_sale.start()
     p_uv.start()
     p_sale.join()
     p_uv.join()
-    print(dangqi_period_date)
+
     print('-------data anlysising start--------')
     sac = SaveAsCSV(uv_path=raw_file_save_path+'\\uv',
                     sale_path=raw_file_save_path+'\\sale',
@@ -97,13 +90,18 @@ if __name__ == '__main__':
         for file in diff:
             print('%s 在文件夹里有缺失')
     head = {'shop':shop}
-    for file in intersection:   #读取文件
+    for file in intersection:   # 读取文件
         fileName = file.decode('gbk')
         if os.path.isfile(raw_file_save_path+'\\uv'+r'\%s'% file) and\
             os.path.isfile(raw_file_save_path+'\\sale'+r'\%s'% file):
-            active_code = fileName.split('_')[1]    #获取档期码
+            active_code = fileName.split('_')[1]    # 获取档期码
             head.update({u'档期唯一码(档期名称+日期)':active_code})
             head.update({u'售卖时间':active_code[-8:]})
             head.update({u'档期名称':active_code[:-9]})
-            sac.save_process(file,**head)
+            sac.save_process(file, **head)
     print('-------data anlysising end--------')
+
+    ftd = FileToDB(db_engine=engine.vertica_engine(), files_path=export_file_path)
+    table_names = ['vip_active_day', 'vip_active_hour', 'vip_active', 'vip_goods']
+    for table in table_names:
+        ftd.files_to_verti(tb_name=table)
