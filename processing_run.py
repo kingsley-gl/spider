@@ -21,8 +21,11 @@ config = ConfigParser.ConfigParser()
 config.read('vip.cfg')
 raw_file_save_path = config.get('Save_Path_Config', 'save_file_path_root')
 export_file_path = config.get('Export_Path_Config', 'export_path_root')
+# sales_log = config.get('Log_Path_Config', 'sales_log')
+# uv_log = config.get('Log_Path_Config', 'uv_log')
+# data_to_vert_log = config.get('Log_Path_Config', 'data_to_vert_log')
 engine = GetDBEngine(config)
-manager = Manager()
+# manager = Manager()
 
 if __name__ == '__main__':
     print(u'爬虫运行开始')
