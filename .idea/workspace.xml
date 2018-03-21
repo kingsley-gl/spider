@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44436183-327e-47e6-88c6-bf9cc306c08b" name="Default" comment="optimize data from files to verticaDB and pyodbc engine,add logger,test,exceptions module">
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/test_crawler.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/test_file_to_vertca.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/test_get_engine.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/test/test_logger.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/util/exceptions.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/util/logger.py" />
+    <list default="true" id="44436183-327e-47e6-88c6-bf9cc306c08b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change beforePath="$PROJECT_DIR$/processing_run.py" afterPath="$PROJECT_DIR$/processing_run.py" />
+      <change beforePath="$PROJECT_DIR$/spider/vip_spider_download_salesfile.py" afterPath="$PROJECT_DIR$/spider/vip_spider_download_salesfile.py" />
+      <change beforePath="$PROJECT_DIR$/test/test_crawler.py" afterPath="$PROJECT_DIR$/test/test_crawler.py" />
+      <change beforePath="$PROJECT_DIR$/util/exceptions.py" afterPath="$PROJECT_DIR$/util/exceptions.py" />
+      <change beforePath="$PROJECT_DIR$/util/file_to_vertica.py" afterPath="$PROJECT_DIR$/util/file_to_vertica.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,6 +19,8 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/vip_spider$file_to_vertica.coverage" NAME="file_to_vertica Coverage Results" MODIFIED="1521166846905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
+    <SUITE FILE_PATH="coverage/vip_spider$Twisted_Trial_in_test_crawler_py.coverage" NAME="Twisted Trial in test_crawler.py Coverage Results" MODIFIED="1521615313372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/vip_spider$vip_spider_download_salesfile.coverage" NAME="vip_spider_download_salesfile Coverage Results" MODIFIED="1521529753503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spider" />
     <SUITE FILE_PATH="coverage/vip_spider$Twisted_Trial_in_test_get_engine_py.coverage" NAME="Twisted Trial in test_get_engine.py Coverage Results" MODIFIED="1521429074254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/vip_spider$processing_run.coverage" NAME="processing_run Coverage Results" MODIFIED="1521513652037" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/vip_spider$Twisted_Trial_in_test_logger_py.coverage" NAME="Twisted Trial in test_logger.py Coverage Results" MODIFIED="1521452340460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
@@ -26,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="vip_spider_download_salesfile.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="vip_spider_download_salesfile.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_salesfile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3160">
-              <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="144">
+              <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
               <folding>
                 <element signature="e#194#224#0" expanded="true" />
               </folding>
@@ -38,63 +40,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_crawler.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test_crawler.py">
+      <file leaf-file-name="base_state.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/spider/base_state.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+            <state relative-caret-position="-361">
+              <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+              <folding>
+                <element signature="e#174#216#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="vip.cfg" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/vip.cfg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test_get_engine.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test_get_engine.py">
+      <file leaf-file-name="test_crawler.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/test_crawler.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="26" />
-              <folding>
-                <element signature="e#180#199#0" expanded="true" />
-                <marker date="1521510279928" expanded="true" signature="414:487" ph="select * fro... sycm_user" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="processing_run.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/processing_run.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="951">
-              <caret line="97" column="44" lean-forward="false" selection-start-line="97" selection-start-column="44" selection-end-line="97" selection-end-column="44" />
-              <folding>
-                <element signature="e#191#230#0" expanded="true" />
-                <marker date="1521513868926" expanded="true" signature="903:976" ph="select * fro... sycm_user" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="file_to_vertica.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/util/file_to_vertica.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2129">
-              <caret line="133" column="70" lean-forward="false" selection-start-line="133" selection-start-column="70" selection-end-line="133" selection-end-column="70" />
-              <folding>
-                <element signature="e#180#189#0" expanded="true" />
-                <marker date="1521513297822" expanded="true" signature="3569:3804" ph="INSERT INTO missing_value... " />
-                <marker date="1521513297822" expanded="true" signature="3607:3804" ph="SELECT * FRO... missing_value" />
-                <marker date="1521513297822" expanded="true" signature="3663:3802" ph="SELECT 1 FRO... activeCode" />
-                <marker date="1521513297822" expanded="true" signature="3678:3743" ph="SELECT activ... missing_value" />
-                <marker date="1521513297822" expanded="true" signature="3829:4079" ph="INSERT INTO missing_value... " />
-                <marker date="1521513297822" expanded="true" signature="3867:4079" ph="SELECT DISTI... missing_value" />
-                <marker date="1521513297822" expanded="true" signature="3938:4077" ph="SELECT 1 FRO... activeCode" />
-                <marker date="1521513297822" expanded="true" signature="3953:4018" ph="SELECT activ... missing_value" />
-                <marker date="1521513297822" expanded="true" signature="4527:4659" ph="DELETE FROM missing_value... " />
-                <marker date="1521513297822" expanded="true" signature="4580:4657" ph="SELECT 1 FRO... missing_value" />
-                <marker date="1521513297822" expanded="true" signature="4722:4869" ph="INSERT INTO missing_value... " />
-                <marker date="1521513297822" expanded="true" signature="4752:4869" ph="SELECT a.*,S... missing_value" />
-                <marker date="1521513297822" expanded="true" signature="4815:4867" ph="SELECT 1 FRO... missing_value" />
-              </folding>
+            <state relative-caret-position="228">
+              <caret line="12" column="74" lean-forward="false" selection-start-line="12" selection-start-column="74" selection-end-line="12" selection-end-column="74" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,32 +75,10 @@
       <file leaf-file-name="logger.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/util/logger.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-523">
-              <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+            <state relative-caret-position="239">
+              <caret line="51" column="21" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="21" />
               <folding>
                 <element signature="e#171#192#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_logger.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test_logger.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="test_file_to_vertca.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test/test_file_to_vertca.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding>
-                <element signature="e#185#226#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -136,19 +87,33 @@
       <file leaf-file-name="exceptions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/util/exceptions.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="247">
-              <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+            <state relative-caret-position="305">
+              <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="20" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vip_spider.log" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/vip_spider.log">
+      <file leaf-file-name="file_to_vertica.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/util/file_to_vertica.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="22" column="58" lean-forward="true" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
-              <folding />
+            <state relative-caret-position="551">
+              <caret line="35" column="39" lean-forward="false" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+              <folding>
+                <marker date="1521614563327" expanded="true" signature="3571:3806" ph="INSERT INTO missing_value... " />
+                <marker date="1521614563327" expanded="true" signature="3609:3806" ph="SELECT * FRO... missing_value" />
+                <marker date="1521614563327" expanded="true" signature="3665:3804" ph="SELECT 1 FRO... activeCode" />
+                <marker date="1521614563327" expanded="true" signature="3680:3745" ph="SELECT activ... missing_value" />
+                <marker date="1521614563327" expanded="true" signature="3831:4081" ph="INSERT INTO missing_value... " />
+                <marker date="1521614563327" expanded="true" signature="3869:4081" ph="SELECT DISTI... missing_value" />
+                <marker date="1521614563327" expanded="true" signature="3940:4079" ph="SELECT 1 FRO... activeCode" />
+                <marker date="1521614563327" expanded="true" signature="3955:4020" ph="SELECT activ... missing_value" />
+                <marker date="1521614563327" expanded="true" signature="4529:4661" ph="DELETE FROM missing_value... " />
+                <marker date="1521614563327" expanded="true" signature="4582:4659" ph="SELECT 1 FRO... missing_value" />
+                <marker date="1521614563327" expanded="true" signature="4724:4871" ph="INSERT INTO missing_value... " />
+                <marker date="1521614563327" expanded="true" signature="4754:4871" ph="SELECT a.*,S... missing_value" />
+                <marker date="1521614563327" expanded="true" signature="4817:4869" ph="SELECT 1 FRO... missing_value" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -175,6 +140,8 @@
       <find>engine_vertica</find>
       <find>user_id</find>
       <find>shop</find>
+      <find>NoSuchElementException</find>
+      <find>debug</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -195,13 +162,16 @@
         <option value="$PROJECT_DIR$/test/test_logger.py" />
         <option value="$PROJECT_DIR$/test/test_file_to_vertca.py" />
         <option value="$PROJECT_DIR$/util/logger.py" />
-        <option value="$PROJECT_DIR$/util/exceptions.py" />
         <option value="$PROJECT_DIR$/test/test_get_engine.py" />
         <option value="$PROJECT_DIR$/run.bat" />
-        <option value="$PROJECT_DIR$/util/file_to_vertica.py" />
-        <option value="$PROJECT_DIR$/test/test_crawler.py" />
-        <option value="$PROJECT_DIR$/spider/vip_spider_download_salesfile.py" />
         <option value="$PROJECT_DIR$/processing_run.py" />
+        <option value="$PROJECT_DIR$/util/exceptions.py" />
+        <option value="$PROJECT_DIR$/spider/vip_salesfile_operate.json" />
+        <option value="$PROJECT_DIR$/spider/json_operator/vip_salesfile_operate.json" />
+        <option value="$PROJECT_DIR$/test/test_crawler.py" />
+        <option value="$PROJECT_DIR$/util/file_to_vertica.py" />
+        <option value="$PROJECT_DIR$/spider/base_state.py" />
+        <option value="$PROJECT_DIR$/spider/vip_spider_download_salesfile.py" />
       </list>
     </option>
   </component>
@@ -276,6 +246,11 @@
       </console-settings>
     </option>
   </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\vip_spider\spider\json_operator" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -288,26 +263,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.processing_run">
-    <configuration name="file_to_vertica" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/util" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="vip_spider" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/util/file_to_vertica.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-    </configuration>
+  <component name="RunManager" selected="Python tests.Twisted Trial in test_crawler.py">
     <configuration name="processing_run" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -327,6 +283,40 @@
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
+    <configuration name="vip_spider_download_salesfile" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/spider" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="vip_spider" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/spider/vip_spider_download_salesfile.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Twisted Trial in test_crawler.py" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="vip_spider" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_crawler.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
     <configuration name="Twisted Trial in test_file_to_vertca.py" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -340,21 +330,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="_new_additionalArguments" value="&quot;&quot;" />
       <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_file_to_vertca.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
-    <configuration name="Twisted Trial in test_get_engine.py" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="vip_spider" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_get_engine.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
     <configuration name="Twisted Trial in test_logger.py" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
@@ -374,18 +349,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.processing_run" />
-      <item index="1" class="java.lang.String" itemvalue="Python.file_to_vertica" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_get_engine.py" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_file_to_vertca.py" />
-      <item index="4" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_logger.py" />
+      <item index="1" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_file_to_vertca.py" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_logger.py" />
+      <item index="3" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_crawler.py" />
+      <item index="4" class="java.lang.String" itemvalue="Python.vip_spider_download_salesfile" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.processing_run" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_file_to_vertca.py" />
-        <item index="2" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_logger.py" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_get_engine.py" />
-        <item index="4" class="java.lang.String" itemvalue="Python.file_to_vertica" />
+        <item index="0" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_crawler.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python.vip_spider_download_salesfile" />
+        <item index="2" class="java.lang.String" itemvalue="Python.processing_run" />
+        <item index="3" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_file_to_vertca.py" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_logger.py" />
       </list>
     </recent_temporary>
   </component>
@@ -410,39 +385,46 @@
       <option name="project" value="LOCAL" />
       <updated>1521514031330</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="optimize data from files to verticaDB and pyodbc engine,add logger,test,exceptions module">
+      <created>1521518056315</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1521518056315</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Twisted_Trial_in_test_file_to_vertca_py - 2018.03.20 at 09h 12m 13s.xml">
-      <configuration name="Twisted Trial in test_file_to_vertca.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.21 at 14h 42m 44s.xml">
+      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_file_to_vertca_py - 2018.03.20 at 09h 16m 27s.xml">
-      <configuration name="Twisted Trial in test_file_to_vertca.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.21 at 14h 43m 50s.xml">
+      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_file_to_vertca_py - 2018.03.20 at 09h 17m 40s.xml">
-      <configuration name="Twisted Trial in test_file_to_vertca.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.21 at 14h 44m 50s.xml">
+      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_file_to_vertca_py - 2018.03.20 at 09h 20m 24s.xml">
-      <configuration name="Twisted Trial in test_file_to_vertca.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.21 at 14h 44m 59s.xml">
+      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_file_to_vertca_py - 2018.03.20 at 09h 20m 41s.xml">
-      <configuration name="Twisted Trial in test_file_to_vertca.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.21 at 14h 47m 27s.xml">
+      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_file_to_vertca_py - 2018.03.20 at 09h 22m 10s.xml">
-      <configuration name="Twisted Trial in test_file_to_vertca.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.21 at 14h 47m 40s.xml">
+      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_file_to_vertca_py - 2018.03.20 at 09h 23m 36s.xml">
-      <configuration name="Twisted Trial in test_file_to_vertca.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.21 at 14h 48m 32s.xml">
+      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_file_to_vertca_py - 2018.03.20 at 10h 20m 46s.xml">
-      <configuration name="Twisted Trial in test_file_to_vertca.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.21 at 14h 50m 04s.xml">
+      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_file_to_vertca_py - 2018.03.20 at 10h 21m 29s.xml">
-      <configuration name="Twisted Trial in test_file_to_vertca.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.21 at 14h 54m 50s.xml">
+      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_logger_py - 2018.03.19 at 17h 39m 00s.xml">
-      <configuration name="Twisted Trial in test_logger.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.21 at 14h 55m 14s.xml">
+      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -456,26 +438,27 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1432" y="-8" width="1382" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5121029" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34876543" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.48789713" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819724" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30555555" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.48411497" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21255673" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21558245" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -530,61 +513,24 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spider/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/get_engine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#175#219#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vip.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="11" lean-forward="false" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/csv_processing.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="30" column="11" lean-forward="true" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
-          <folding>
-            <element signature="e#179#198#0" expanded="false" />
-            <element signature="e#4079#4431#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/util/file_to_vertica.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2907">
           <caret line="162" column="43" lean-forward="false" selection-start-line="162" selection-start-column="43" selection-end-line="162" selection-end-column="43" />
           <folding>
-            <element signature="e#180#189#0" expanded="true" />
-            <marker date="1521513297822" expanded="true" signature="3569:3804" ph="INSERT INTO missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="3607:3804" ph="SELECT * FRO... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="3663:3802" ph="SELECT 1 FRO... activeCode" />
-            <marker date="1521513297822" expanded="true" signature="3678:3743" ph="SELECT activ... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="3829:4079" ph="INSERT INTO missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="3867:4079" ph="SELECT DISTI... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="3938:4077" ph="SELECT 1 FRO... activeCode" />
-            <marker date="1521513297822" expanded="true" signature="3953:4018" ph="SELECT activ... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="4527:4659" ph="DELETE FROM missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="4580:4657" ph="SELECT 1 FRO... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="4722:4869" ph="INSERT INTO missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="4752:4869" ph="SELECT a.*,S... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="4815:4867" ph="SELECT 1 FRO... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3571:3806" ph="INSERT INTO missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="3609:3806" ph="SELECT * FRO... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3665:3804" ph="SELECT 1 FRO... activeCode" />
+            <marker date="1521614563327" expanded="true" signature="3680:3745" ph="SELECT activ... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3831:4081" ph="INSERT INTO missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="3869:4081" ph="SELECT DISTI... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3940:4079" ph="SELECT 1 FRO... activeCode" />
+            <marker date="1521614563327" expanded="true" signature="3955:4020" ph="SELECT activ... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="4529:4661" ph="DELETE FROM missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="4582:4659" ph="SELECT 1 FRO... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="4724:4871" ph="INSERT INTO missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="4754:4871" ph="SELECT a.*,S... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="4817:4869" ph="SELECT 1 FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -600,9 +546,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1273">
           <caret line="71" column="16" lean-forward="false" selection-start-line="71" selection-start-column="16" selection-end-line="71" selection-end-column="112" />
-          <folding>
-            <element signature="e#192#222#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -628,9 +572,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2451">
           <caret line="133" column="107" lean-forward="false" selection-start-line="133" selection-start-column="107" selection-end-line="133" selection-end-column="107" />
-          <folding>
-            <element signature="e#192#222#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -639,8 +581,8 @@
         <state relative-caret-position="1482">
           <caret line="86" column="28" lean-forward="false" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
           <folding>
-            <element signature="e#191#230#0" expanded="true" />
-            <marker date="1521513868926" expanded="true" signature="903:976" ph="select * fro... sycm_user" />
+            <element signature="e#191#230#0" expanded="false" />
+            <marker date="1521528010816" expanded="true" signature="934:1007" ph="select * fro... sycm_user" />
           </folding>
         </state>
       </provider>
@@ -649,6 +591,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -657,7 +600,7 @@
         <state relative-caret-position="133">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#175#219#0" expanded="true" />
+            <element signature="e#175#219#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -675,20 +618,19 @@
         <state relative-caret-position="2907">
           <caret line="162" column="43" lean-forward="true" selection-start-line="162" selection-start-column="43" selection-end-line="162" selection-end-column="43" />
           <folding>
-            <element signature="e#180#189#0" expanded="true" />
-            <marker date="1521513297822" expanded="true" signature="3569:3804" ph="INSERT INTO missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="3607:3804" ph="SELECT * FRO... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="3663:3802" ph="SELECT 1 FRO... activeCode" />
-            <marker date="1521513297822" expanded="true" signature="3678:3743" ph="SELECT activ... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="3829:4079" ph="INSERT INTO missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="3867:4079" ph="SELECT DISTI... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="3938:4077" ph="SELECT 1 FRO... activeCode" />
-            <marker date="1521513297822" expanded="true" signature="3953:4018" ph="SELECT activ... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="4527:4659" ph="DELETE FROM missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="4580:4657" ph="SELECT 1 FRO... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="4722:4869" ph="INSERT INTO missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="4752:4869" ph="SELECT a.*,S... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="4815:4867" ph="SELECT 1 FRO... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3571:3806" ph="INSERT INTO missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="3609:3806" ph="SELECT * FRO... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3665:3804" ph="SELECT 1 FRO... activeCode" />
+            <marker date="1521614563327" expanded="true" signature="3680:3745" ph="SELECT activ... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3831:4081" ph="INSERT INTO missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="3869:4081" ph="SELECT DISTI... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3940:4079" ph="SELECT 1 FRO... activeCode" />
+            <marker date="1521614563327" expanded="true" signature="3955:4020" ph="SELECT activ... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="4529:4661" ph="DELETE FROM missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="4582:4659" ph="SELECT 1 FRO... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="4724:4871" ph="INSERT INTO missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="4754:4871" ph="SELECT a.*,S... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="4817:4869" ph="SELECT 1 FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -733,9 +675,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="36" />
-          <folding>
-            <element signature="e#192#222#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -744,8 +684,8 @@
         <state relative-caret-position="1938">
           <caret line="110" column="48" lean-forward="true" selection-start-line="110" selection-start-column="48" selection-end-line="110" selection-end-column="48" />
           <folding>
-            <element signature="e#191#230#0" expanded="true" />
-            <marker date="1521513868926" expanded="true" signature="903:976" ph="select * fro... sycm_user" />
+            <element signature="e#191#230#0" expanded="false" />
+            <marker date="1521528010816" expanded="true" signature="934:1007" ph="select * fro... sycm_user" />
           </folding>
         </state>
       </provider>
@@ -754,6 +694,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -762,7 +703,7 @@
         <state relative-caret-position="133">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
-            <element signature="e#175#219#0" expanded="true" />
+            <element signature="e#175#219#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -791,20 +732,19 @@
         <state relative-caret-position="3021">
           <caret line="168" column="24" lean-forward="true" selection-start-line="168" selection-start-column="24" selection-end-line="168" selection-end-column="24" />
           <folding>
-            <element signature="e#180#189#0" expanded="true" />
-            <marker date="1521513297822" expanded="true" signature="3569:3804" ph="INSERT INTO missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="3607:3804" ph="SELECT * FRO... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="3663:3802" ph="SELECT 1 FRO... activeCode" />
-            <marker date="1521513297822" expanded="true" signature="3678:3743" ph="SELECT activ... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="3829:4079" ph="INSERT INTO missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="3867:4079" ph="SELECT DISTI... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="3938:4077" ph="SELECT 1 FRO... activeCode" />
-            <marker date="1521513297822" expanded="true" signature="3953:4018" ph="SELECT activ... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="4527:4659" ph="DELETE FROM missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="4580:4657" ph="SELECT 1 FRO... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="4722:4869" ph="INSERT INTO missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="4752:4869" ph="SELECT a.*,S... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="4815:4867" ph="SELECT 1 FRO... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3571:3806" ph="INSERT INTO missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="3609:3806" ph="SELECT * FRO... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3665:3804" ph="SELECT 1 FRO... activeCode" />
+            <marker date="1521614563327" expanded="true" signature="3680:3745" ph="SELECT activ... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3831:4081" ph="INSERT INTO missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="3869:4081" ph="SELECT DISTI... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3940:4079" ph="SELECT 1 FRO... activeCode" />
+            <marker date="1521614563327" expanded="true" signature="3955:4020" ph="SELECT activ... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="4529:4661" ph="DELETE FROM missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="4582:4659" ph="SELECT 1 FRO... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="4724:4871" ph="INSERT INTO missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="4754:4871" ph="SELECT a.*,S... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="4817:4869" ph="SELECT 1 FRO... missing_value" />
           </folding>
         </state>
       </provider>
@@ -814,8 +754,8 @@
         <state relative-caret-position="342">
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
-            <element signature="e#191#230#0" expanded="true" />
-            <marker date="1521513868926" expanded="true" signature="903:976" ph="select * fro... sycm_user" />
+            <element signature="e#191#230#0" expanded="false" />
+            <marker date="1521528010816" expanded="true" signature="934:1007" ph="select * fro... sycm_user" />
           </folding>
         </state>
       </provider>
@@ -835,7 +775,7 @@
         <state relative-caret-position="285">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding>
-            <element signature="e#175#219#0" expanded="true" />
+            <element signature="e#175#219#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -844,9 +784,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4446">
           <caret line="234" column="7" lean-forward="false" selection-start-line="234" selection-start-column="7" selection-end-line="234" selection-end-column="7" />
-          <folding>
-            <element signature="e#192#222#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -861,6 +799,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -868,24 +807,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_uvfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-950">
-          <caret line="67" column="36" lean-forward="false" selection-start-line="67" selection-start-column="36" selection-end-line="67" selection-end-column="36" />
-          <folding>
-            <element signature="e#192#222#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/delete_dup_file.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -907,49 +828,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vip.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="7" lean-forward="false" selection-start-line="10" selection-start-column="7" selection-end-line="10" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/util/get_engine.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-95">
           <caret line="28" column="77" lean-forward="false" selection-start-line="28" selection-start-column="77" selection-end-line="28" selection-end-column="77" />
           <folding>
-            <element signature="e#175#219#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_salesfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3160">
-          <caret line="18" column="0" lean-forward="false" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding>
-            <element signature="e#194#224#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_crawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_get_engine.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="26" />
-          <folding>
-            <element signature="e#180#199#0" expanded="true" />
-            <marker date="1521510279928" expanded="true" signature="414:487" ph="select * fro... sycm_user" />
+            <element signature="e#175#219#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -958,93 +842,165 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="57">
           <caret line="3" column="17" lean-forward="false" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/file_to_vertica.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2129">
-          <caret line="133" column="70" lean-forward="false" selection-start-line="133" selection-start-column="70" selection-end-line="133" selection-end-column="70" />
-          <folding>
-            <element signature="e#180#189#0" expanded="true" />
-            <marker date="1521513297822" expanded="true" signature="3569:3804" ph="INSERT INTO missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="3607:3804" ph="SELECT * FRO... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="3663:3802" ph="SELECT 1 FRO... activeCode" />
-            <marker date="1521513297822" expanded="true" signature="3678:3743" ph="SELECT activ... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="3829:4079" ph="INSERT INTO missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="3867:4079" ph="SELECT DISTI... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="3938:4077" ph="SELECT 1 FRO... activeCode" />
-            <marker date="1521513297822" expanded="true" signature="3953:4018" ph="SELECT activ... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="4527:4659" ph="DELETE FROM missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="4580:4657" ph="SELECT 1 FRO... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="4722:4869" ph="INSERT INTO missing_value... " />
-            <marker date="1521513297822" expanded="true" signature="4752:4869" ph="SELECT a.*,S... missing_value" />
-            <marker date="1521513297822" expanded="true" signature="4815:4867" ph="SELECT 1 FRO... missing_value" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/processing_run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="951">
-          <caret line="97" column="44" lean-forward="false" selection-start-line="97" selection-start-column="44" selection-end-line="97" selection-end-column="44" />
-          <folding>
-            <element signature="e#191#230#0" expanded="true" />
-            <marker date="1521513868926" expanded="true" signature="903:976" ph="select * fro... sycm_user" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test/test_file_to_vertca.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/vip_spider.log" />
+    <entry file="file://$PROJECT_DIR$/test/test_logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="23" lean-forward="false" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_get_engine.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="26" />
           <folding>
-            <element signature="e#185#226#0" expanded="true" />
+            <element signature="e#180#199#0" expanded="false" />
+            <marker date="1521510279928" expanded="true" signature="414:487" ph="select * fro... sycm_user" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/vip_spider.log">
+    <entry file="file://$PROJECT_DIR$/test/geckodriver.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-3884">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python27/Lib/site-packages/selenium/webdriver/remote/errorhandler.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="19" column="18" lean-forward="false" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vip_spider.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-673">
+          <caret line="24" column="69" lean-forward="true" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="69" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_logger.py">
+    <entry file="file://$PROJECT_DIR$/spider/json_operator/vip_salesfile_operate.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="23" lean-forward="true" selection-start-line="13" selection-start-column="23" selection-end-line="13" selection-end-column="23" />
+        <state relative-caret-position="171">
+          <caret line="9" column="15" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_uvfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="152" column="0" lean-forward="false" selection-start-line="152" selection-start-column="0" selection-end-line="152" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vip.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="14" lean-forward="false" selection-start-line="15" selection-start-column="14" selection-end-line="15" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/processing_run.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="93" column="38" lean-forward="false" selection-start-line="93" selection-start-column="38" selection-end-line="93" selection-end-column="38" />
+          <folding>
+            <element signature="e#191#230#0" expanded="false" />
+            <marker date="1521528010816" expanded="true" signature="934:1007" ph="select * fro... sycm_user" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/delete_dup_file.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="334">
+          <caret line="35" column="12" lean-forward="false" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/exceptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="20" column="20" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/util/logger.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-523">
-          <caret line="14" column="17" lean-forward="false" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        <state relative-caret-position="239">
+          <caret line="51" column="21" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="21" />
           <folding>
             <element signature="e#171#192#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/exceptions.py">
+    <entry file="file://$PROJECT_DIR$/test/test_crawler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="24" lean-forward="false" selection-start-line="13" selection-start-column="24" selection-end-line="13" selection-end-column="24" />
+        <state relative-caret-position="228">
+          <caret line="12" column="74" lean-forward="false" selection-start-line="12" selection-start-column="74" selection-end-line="12" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/vip_spider.log">
+    <entry file="file://$PROJECT_DIR$/spider/base_state.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="22" column="58" lean-forward="true" selection-start-line="22" selection-start-column="58" selection-end-line="22" selection-end-column="58" />
-          <folding />
+        <state relative-caret-position="-361">
+          <caret line="21" column="43" lean-forward="true" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
+          <folding>
+            <element signature="e#174#216#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/file_to_vertica.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="35" column="39" lean-forward="false" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
+          <folding>
+            <marker date="1521614563327" expanded="true" signature="3571:3806" ph="INSERT INTO missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="3609:3806" ph="SELECT * FRO... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3665:3804" ph="SELECT 1 FRO... activeCode" />
+            <marker date="1521614563327" expanded="true" signature="3680:3745" ph="SELECT activ... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3831:4081" ph="INSERT INTO missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="3869:4081" ph="SELECT DISTI... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="3940:4079" ph="SELECT 1 FRO... activeCode" />
+            <marker date="1521614563327" expanded="true" signature="3955:4020" ph="SELECT activ... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="4529:4661" ph="DELETE FROM missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="4582:4659" ph="SELECT 1 FRO... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="4724:4871" ph="INSERT INTO missing_value... " />
+            <marker date="1521614563327" expanded="true" signature="4754:4871" ph="SELECT a.*,S... missing_value" />
+            <marker date="1521614563327" expanded="true" signature="4817:4869" ph="SELECT 1 FRO... missing_value" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_salesfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="16" column="12" lean-forward="true" selection-start-line="16" selection-start-column="12" selection-end-line="16" selection-end-column="12" />
+          <folding>
+            <element signature="e#194#224#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

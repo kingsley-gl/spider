@@ -9,7 +9,7 @@
 
 from util.get_engine import GetDBEngine
 import pandas as pd
-from multiprocessing import Process
+from multiprocessing import Process, Manager
 from util.csv_processing import SaveAsCSV
 from spider.vip_spider_download_salesfile import download_and_process as d_sale
 from spider.vip_spider_download_uvfile import download_and_process as d_uv
@@ -17,12 +17,13 @@ from util.file_to_vertica import FileToDB
 import ConfigParser
 import os
 
-
 config = ConfigParser.ConfigParser()
 config.read('vip.cfg')
 raw_file_save_path = config.get('Save_Path_Config', 'save_file_path_root')
 export_file_path = config.get('Export_Path_Config', 'export_path_root')
-engine=GetDBEngine(config)
+engine = GetDBEngine(config)
+manager = Manager()
+
 if __name__ == '__main__':
     print(u'爬虫运行开始')
     engine_vertica = engine.vertica_engine()
@@ -88,8 +89,8 @@ if __name__ == '__main__':
     diff = list(set(uv_file_list).difference(set(sale_file_list)))  #取补集
     if not diff:
         for file in diff:
-            print('%s 在文件夹里有缺失')
-    head = {'shop':shop}
+            print('%s 在文件夹里有缺失' % file)
+    head = {'shop': shop}
     for file in intersection:   # 读取文件
         fileName = file.decode('gbk')
         if os.path.isfile(raw_file_save_path+'\\uv'+r'\%s'% file) and\

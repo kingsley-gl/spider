@@ -18,3 +18,4 @@ class BaseException(Exception):
 
 class DataBaseConnectError(BaseException):pass
 class DataBaseExecuteError(BaseException):pass
+class NoElementError(BaseException):pass
