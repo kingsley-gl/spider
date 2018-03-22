@@ -44,7 +44,7 @@ LOGGING = {
             'level':'INFO',
             'class':'logging.FileHandler',
             'formatter':'info',
-            'filename':'e:\\vip_spider\\vip_spider.log',
+            'filename':'e:\\vip_spider\\log\\vip_spider.log',
         },
         'file_sale': {
             'level': 'INFO',
