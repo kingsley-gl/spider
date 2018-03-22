@@ -63,12 +63,12 @@ LOGGING = {
         'spider_sales': {
             'handlers':['console_debug', 'file_sale'],
             'propagate': True,
-            'level':'DEBUG',
+            'level':'INFO',
         },
         'spider_uv': {
             'handlers': ['console_debug', 'file_uv'],
             'propagate': True,
-            'level': 'DEBUG',
+            'level': 'INFO',
         },
         'spider_info':{
             'handlers': ['file','console_info'],

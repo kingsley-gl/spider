@@ -145,7 +145,7 @@ class CatchBrandState(State):
             self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
                                    xpath="//div[4]/div/div/ul/li[1]/span", operator='text')
         except NoElementError:  # 抓取不到品牌信息
-            self.success_state = BrandState()
+            self.success_state = GoodsState()
             driver.refresh()
             driver.get(driver.current_url)
             time.sleep(TIMING)
@@ -184,7 +184,7 @@ class ClickBrandState(State):
                                        xpath="(//input[@type='text'])[2]", operator='click')  # 点击：档期下拉
                 self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
                                        xpath="(//input[@type='text'])[2]", operator='send_keys', key=dangqi)  # 档期值输入
-                time.sleep(TIMING)
+                time.sleep(0.5)
                 self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
                                        xpath="(//input[@type='text'])[2]", operator='send_keys', key=Keys.DOWN)   # 键盘操作：下
                 self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
@@ -211,7 +211,7 @@ class ClickBrandState(State):
                                    xpath="//input[@type='text']", operator='click')  # 点击：品牌下拉
             self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
                                    xpath="//input[@type='text']", operator='send_keys', key=brand)  # 输入品牌
-            time.sleep(TIMING)
+            time.sleep(0.5)
             if i != 0:
                 self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
                                        xpath="//input[@type='text']", operator='send_keys', key=Keys.DOWN)  # 键盘操作：下
@@ -219,7 +219,7 @@ class ClickBrandState(State):
                                        xpath="//input[@type='text']", operator='send_keys', key=Keys.ENTER)  # 键盘操作：回车
             self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
                                    xpath="(//input[@type='text'])[2]", operator='click')  # 点击：档期下拉
-            time.sleep(3)
+            time.sleep(1)
             j = 1
             options = []
             while True:
