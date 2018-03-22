@@ -18,9 +18,6 @@ reload(sys)
 sys.setdefaultencoding('utf8')
 
 
-def get_now():
-    return time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(time.time()))
-
 
 config = ConfigParser.ConfigParser()
 config.read('vip.cfg')

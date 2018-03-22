@@ -11,8 +11,8 @@ from util.get_engine import GetDBEngine
 import pandas as pd
 from multiprocessing import Process, Manager
 from util.csv_processing import SaveAsCSV
-from spider.vip_spider_download_salesfile import download_and_process as d_sale
-from spider.vip_spider_download_uvfile import download_and_process as d_uv
+from spider.vip_spider_download_salesfile import crawl_salesfile_data as d_sale
+from spider.vip_spider_download_uvfile import crawl_uvfile_data as d_uv
 from util.file_to_vertica import FileToDB
 import ConfigParser
 import os
@@ -59,24 +59,23 @@ if __name__ == '__main__':
     raw_file_save_path = raw_file_save_path+r'{user_id}'.format(user_id=user_id)
     if not os.path.exists(raw_file_save_path):
         os.makedirs(raw_file_save_path)
-    p_sale = Process(target=d_sale,kwargs={'user_id':user_id,
-                                 'shop':shop,
-                                 'login_user':login_user,
-                                 'password':password,
-                                 'rawFileSavePath':raw_file_save_path,
-                                 'csvSaveRootPath':export_file_path,
-                                'crawlDays':crawlDays,
-                               'crawlDates':crawlDates,
-                                })
+    p_sale = Process(target=d_sale,kwargs={
+                                        'login_user':login_user,
+                                        'password':password,
+                                        'download_path':raw_file_save_path,
+                                        'crawl_days':crawlDays,
+                                        'crawl_dates':crawlDates,
+                                        'share_list':[]
+                                    })
 
-    p_uv = Process(target=d_uv, kwargs={'user_id': user_id,
-                                 'shop': shop,
-                                 'login_user': login_user,
-                                 'password': password,
-                                 'rawFileSavePath': raw_file_save_path,
-                                 'csvSaveRootPath': export_file_path,
-                                'crawlDays': crawlDays,
-                               'crawlDates': crawlDates})
+    p_uv = Process(target=d_uv, kwargs={
+                                        'login_user': login_user,
+                                        'password': password,
+                                        'download_path': raw_file_save_path,
+                                        'crawl_days': crawlDays,
+                                        'crawl_dates': crawlDates,
+                                        'share_list': []
+                                    })
     p_sale.start()
     p_uv.start()
     p_sale.join()
@@ -106,6 +105,6 @@ if __name__ == '__main__':
     print('-------data anlysising end--------')
 
     ftd = FileToDB(db_engine=engine.vertica_engine(), files_path=export_file_path)
-    table_names = ['vip_active_day', 'vip_active_hour', 'vip_active', 'vip_goods']
+    table_names = ['vip_active','vip_active_day','vip_active_hour','vip_return','vip_goods','vip_barCode','vip_region','vip_behind_goods']
     for table in table_names:
         ftd.files_to_verti(tb_name=table)

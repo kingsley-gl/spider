@@ -8,7 +8,7 @@
 # @Function:
 
 import logging.config
-import datetime,time
+
 
 
 LOGGING = {
@@ -16,7 +16,7 @@ LOGGING = {
     'disable_existing_loggers': True,
     'formatters': {
         'debug': {
-            'format': '[LOGNAME-%(name)s][TIME-%(asctime)s][FILE-%(filename)s][PID-%(process)d] %(levelname)s: %(message)s'
+            'format': '[LOGNAME-%(name)s][TIME-%(asctime)s] %(levelname)s: %(message)s'
         },
         'info': {
             'format': '[%(asctime)s][%(filename)s] %(levelname)s %(message)s'
@@ -45,14 +45,30 @@ LOGGING = {
             'class':'logging.FileHandler',
             'formatter':'info',
             'filename':'e:\\vip_spider\\vip_spider.log',
+        },
+        'file_sale': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'formatter': 'info',
+            'filename':'e:\\vip_spider\\log\\crawl_sales.log',
+        },
+        'file_uv': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'formatter': 'info',
+            'filename': 'e:\\vip_spider\\log\\crawl_uv.log',
         }
-
     },
     'loggers': {
-        'spider_debug': {
-            'handlers':['console_debug',],
+        'spider_sales': {
+            'handlers':['console_debug', 'file_sale'],
             'propagate': True,
             'level':'DEBUG',
+        },
+        'spider_uv': {
+            'handlers': ['console_debug', 'file_uv'],
+            'propagate': True,
+            'level': 'DEBUG',
         },
         'spider_info':{
             'handlers': ['file','console_info'],
