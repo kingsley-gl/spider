@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44436183-327e-47e6-88c6-bf9cc306c08b" name="Default" comment="2018.03.22 fix go to">
+    <list default="true" id="44436183-327e-47e6-88c6-bf9cc306c08b" name="Default" comment="2018.3.23 modify c">
+      <change beforePath="" afterPath="$PROJECT_DIR$/table_frame.json" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/test/test_csv_processing.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/geckodriver.log" afterPath="$PROJECT_DIR$/geckodriver.log" />
-      <change beforePath="$PROJECT_DIR$/spider/vip_spider_download_salesfile.py" afterPath="$PROJECT_DIR$/spider/vip_spider_download_salesfile.py" />
-      <change beforePath="$PROJECT_DIR$/spider/vip_spider_download_uvfile.py" afterPath="$PROJECT_DIR$/spider/vip_spider_download_uvfile.py" />
-      <change beforePath="$PROJECT_DIR$/util/logger.py" afterPath="$PROJECT_DIR$/util/logger.py" />
+      <change beforePath="$PROJECT_DIR$/processing_run.py" afterPath="$PROJECT_DIR$/processing_run.py" />
+      <change beforePath="$PROJECT_DIR$/util/csv_processing.py" afterPath="$PROJECT_DIR$/util/csv_processing.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -18,19 +18,20 @@
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/vip_spider$file_to_vertica.coverage" NAME="file_to_vertica Coverage Results" MODIFIED="1521166846905" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/util" />
     <SUITE FILE_PATH="coverage/vip_spider$Twisted_Trial_in_test_crawler_py.coverage" NAME="Twisted Trial in test_crawler.py Coverage Results" MODIFIED="1521706896794" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
+    <SUITE FILE_PATH="coverage/vip_spider$Twisted_Trial_in_test_csv_processing_py.coverage" NAME="Twisted Trial in test_csv_processing.py Coverage Results" MODIFIED="1521776385455" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/vip_spider$vip_spider_download_salesfile.coverage" NAME="vip_spider_download_salesfile Coverage Results" MODIFIED="1521529753503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/spider" />
     <SUITE FILE_PATH="coverage/vip_spider$Twisted_Trial_in_test_get_engine_py.coverage" NAME="Twisted Trial in test_get_engine.py Coverage Results" MODIFIED="1521429074254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
-    <SUITE FILE_PATH="coverage/vip_spider$processing_run.coverage" NAME="processing_run Coverage Results" MODIFIED="1521710819404" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/vip_spider$processing_run.coverage" NAME="processing_run Coverage Results" MODIFIED="1521777162871" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/vip_spider$Twisted_Trial_in_test_logger_py.coverage" NAME="Twisted Trial in test_logger.py Coverage Results" MODIFIED="1521452340460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
     <SUITE FILE_PATH="coverage/vip_spider$Twisted_Trial_in_test_file_to_vertca_py.coverage" NAME="Twisted Trial in test_file_to_vertca.py Coverage Results" MODIFIED="1521512485564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/test" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="vip_spider_download_salesfile.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vip_spider_download_salesfile.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_salesfile.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="530">
-              <caret line="146" column="42" lean-forward="true" selection-start-line="146" selection-start-column="42" selection-end-line="146" selection-end-column="42" />
+            <state relative-caret-position="19">
+              <caret line="130" column="52" lean-forward="false" selection-start-line="130" selection-start-column="52" selection-end-line="130" selection-end-column="52" />
               <folding>
                 <element signature="e#194#224#0" expanded="true" />
                 <element signature="e#12233#12286#0" expanded="false" />
@@ -39,32 +40,72 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vip_spider.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vip_spider.log">
+      <file leaf-file-name="csv_processing.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/util/csv_processing.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="24" column="69" lean-forward="true" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="69" />
+            <state relative-caret-position="2213">
+              <caret line="123" column="66" lean-forward="false" selection-start-line="123" selection-start-column="66" selection-end-line="123" selection-end-column="66" />
+              <folding>
+                <element signature="e#179#198#0" expanded="true" />
+                <element signature="e#4387#4415#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test_csv_processing.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/test_csv_processing.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="551">
+              <caret line="29" column="36" lean-forward="false" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vip.cfg" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/vip.cfg">
+      <file leaf-file-name="table_frame.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/table_frame.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state relative-caret-position="19">
+              <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="53" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base_state.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/spider/base_state.py">
+      <file leaf-file-name="file_to_vertica.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/util/file_to_vertica.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="24" column="56" lean-forward="false" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
-              <folding />
+            <state relative-caret-position="100">
+              <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="20" />
+              <folding>
+                <marker date="1521706643770" expanded="true" signature="3480:3715" ph="INSERT INTO missing_value... " />
+                <marker date="1521706643770" expanded="true" signature="3518:3715" ph="SELECT * FRO... missing_value" />
+                <marker date="1521706643770" expanded="true" signature="3574:3713" ph="SELECT 1 FRO... activeCode" />
+                <marker date="1521706643770" expanded="true" signature="3589:3654" ph="SELECT activ... missing_value" />
+                <marker date="1521706643770" expanded="true" signature="3740:3990" ph="INSERT INTO missing_value... " />
+                <marker date="1521706643770" expanded="true" signature="3778:3990" ph="SELECT DISTI... missing_value" />
+                <marker date="1521706643770" expanded="true" signature="3849:3988" ph="SELECT 1 FRO... activeCode" />
+                <marker date="1521706643770" expanded="true" signature="3864:3929" ph="SELECT activ... missing_value" />
+                <marker date="1521706643770" expanded="true" signature="4438:4570" ph="DELETE FROM missing_value... " />
+                <marker date="1521706643770" expanded="true" signature="4491:4568" ph="SELECT 1 FRO... missing_value" />
+                <marker date="1521706643770" expanded="true" signature="4633:4780" ph="INSERT INTO missing_value... " />
+                <marker date="1521706643770" expanded="true" signature="4663:4780" ph="SELECT a.*,S... missing_value" />
+                <marker date="1521706643770" expanded="true" signature="4726:4778" ph="SELECT 1 FRO... missing_value" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="processing_run.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/processing_run.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="21">
+              <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+              <folding>
+                <element signature="e#191#230#0" expanded="true" />
+                <marker date="1521777162785" expanded="true" signature="1113:1186" ph="select * fro... sycm_user" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -81,55 +122,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crawl_uv.log" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/log/crawl_uv.log">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-18">
-              <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="logger.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/util/logger.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1368">
-              <caret line="72" column="23" lean-forward="true" selection-start-line="72" selection-start-column="23" selection-end-line="73" selection-end-column="48" />
+            <state relative-caret-position="648">
+              <caret line="72" column="20" lean-forward="false" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="20" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="228">
-              <caret line="12" column="81" lean-forward="false" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="setup.bat" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/setup.bat">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="processing_run.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/processing_run.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1073">
-              <caret line="63" column="60" lean-forward="false" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="60" />
-              <folding>
-                <element signature="e#191#230#0" expanded="true" />
-                <marker date="1521707018305" expanded="true" signature="1112:1185" ph="select * fro... sycm_user" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -164,7 +162,14 @@
       <find>tb</find>
       <find>tb_test</find>
       <find>user_id</find>
+      <find>export_file_path</find>
+      <find>u</find>
+      <find>'</find>
+      <find>table</find>
     </findStrings>
+    <replaceStrings>
+      <replace>&quot;</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="ROOT_SYNC" value="DONT_SYNC" />
@@ -177,7 +182,6 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/spider/__init__.py" />
-        <option value="$PROJECT_DIR$/util/csv_processing.py" />
         <option value="$PROJECT_DIR$/util/GetEngine.py" />
         <option value="$PROJECT_DIR$/test/test_logger.py" />
         <option value="$PROJECT_DIR$/test/test_file_to_vertca.py" />
@@ -188,7 +192,6 @@
         <option value="$PROJECT_DIR$/spider/json_operator/vip_salesfile_operate.json" />
         <option value="$PROJECT_DIR$/test/test_crawler.py" />
         <option value="$PROJECT_DIR$/util/file_to_vertica.py" />
-        <option value="$PROJECT_DIR$/processing_run.py" />
         <option value="$PROJECT_DIR$/log/crawl_uv.log" />
         <option value="$PROJECT_DIR$/log/crawl_sales.log" />
         <option value="$PROJECT_DIR$/spider/base_state.py" />
@@ -197,6 +200,10 @@
         <option value="$PROJECT_DIR$/util/logger.py" />
         <option value="$PROJECT_DIR$/spider/vip_spider_download_uvfile.py" />
         <option value="$PROJECT_DIR$/spider/vip_spider_download_salesfile.py" />
+        <option value="$PROJECT_DIR$/util/table_frame.json" />
+        <option value="$PROJECT_DIR$/test/test_csv_processing.py" />
+        <option value="$PROJECT_DIR$/processing_run.py" />
+        <option value="$PROJECT_DIR$/util/csv_processing.py" />
       </list>
     </option>
   </component>
@@ -228,22 +235,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="vip_spider" type="b2602c69:ProjectViewProjectNode" />
               <item name="vip_spider" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vip_spider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vip_spider" type="462c0819:PsiDirectoryNode" />
-              <item name="log" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="vip_spider" type="b2602c69:ProjectViewProjectNode" />
-              <item name="vip_spider" type="462c0819:PsiDirectoryNode" />
-              <item name="spider" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="vip_spider" type="b2602c69:ProjectViewProjectNode" />
@@ -259,7 +257,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -267,7 +264,7 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/test" />
+    <property name="last_opened_file_path" value="E:/app-py_old/Apps/Spider/tmall" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -278,6 +275,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\vip_spider" />
       <recent name="E:\vip_spider\spider\json_operator" />
     </key>
   </component>
@@ -347,6 +345,21 @@
       <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_crawler.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
+    <configuration name="Twisted Trial in test_csv_processing.py" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="vip_spider" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_csv_processing.py&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+    </configuration>
     <configuration name="Twisted Trial in test_file_to_vertca.py" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -362,35 +375,20 @@
       <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_file_to_vertca.py&quot;" />
       <option name="_new_targetType" value="&quot;PATH&quot;" />
     </configuration>
-    <configuration name="Twisted Trial in test_logger.py" type="tests" factoryName="Twisted Trial" temporary="true" nameIsGenerated="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/test" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="vip_spider" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;$PROJECT_DIR$/test/test_logger.py&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-    </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.processing_run" />
       <item index="1" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_file_to_vertca.py" />
-      <item index="2" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_logger.py" />
-      <item index="3" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_crawler.py" />
-      <item index="4" class="java.lang.String" itemvalue="Python.vip_spider_download_salesfile" />
+      <item index="2" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_crawler.py" />
+      <item index="3" class="java.lang.String" itemvalue="Python.vip_spider_download_salesfile" />
+      <item index="4" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_csv_processing.py" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.processing_run" />
-        <item index="1" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_crawler.py" />
-        <item index="2" class="java.lang.String" itemvalue="Python.vip_spider_download_salesfile" />
-        <item index="3" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_file_to_vertca.py" />
-        <item index="4" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_logger.py" />
+        <item index="1" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_csv_processing.py" />
+        <item index="2" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_crawler.py" />
+        <item index="3" class="java.lang.String" itemvalue="Python.vip_spider_download_salesfile" />
+        <item index="4" class="java.lang.String" itemvalue="Python tests.Twisted Trial in test_file_to_vertca.py" />
       </list>
     </recent_temporary>
   </component>
@@ -485,39 +483,46 @@
       <option name="project" value="LOCAL" />
       <updated>1521709220531</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="2018.03.22 fix go to BrandState bug">
+      <created>1521710953847</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1521710953847</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.22 at 15h 30m 19s.xml">
-      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_csv_processing_py - 2018.03.23 at 11h 19m 32s.xml">
+      <configuration name="Twisted Trial in test_csv_processing.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.22 at 15h 30m 36s.xml">
-      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_csv_processing_py - 2018.03.23 at 11h 24m 15s.xml">
+      <configuration name="Twisted Trial in test_csv_processing.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.22 at 15h 30m 52s.xml">
-      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_csv_processing_py - 2018.03.23 at 11h 25m 03s.xml">
+      <configuration name="Twisted Trial in test_csv_processing.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.22 at 15h 37m 19s.xml">
-      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_csv_processing_py - 2018.03.23 at 11h 25m 51s.xml">
+      <configuration name="Twisted Trial in test_csv_processing.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.22 at 15h 40m 12s.xml">
-      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_csv_processing_py - 2018.03.23 at 11h 26m 17s.xml">
+      <configuration name="Twisted Trial in test_csv_processing.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.22 at 15h 42m 17s.xml">
-      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_csv_processing_py - 2018.03.23 at 11h 27m 30s.xml">
+      <configuration name="Twisted Trial in test_csv_processing.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.22 at 16h 02m 39s.xml">
-      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_csv_processing_py - 2018.03.23 at 11h 28m 52s.xml">
+      <configuration name="Twisted Trial in test_csv_processing.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.22 at 16h 11m 05s.xml">
-      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_csv_processing_py - 2018.03.23 at 11h 29m 22s.xml">
+      <configuration name="Twisted Trial in test_csv_processing.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.22 at 16h 15m 08s.xml">
-      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_csv_processing_py - 2018.03.23 at 11h 32m 42s.xml">
+      <configuration name="Twisted Trial in test_csv_processing.py" configurationId="tests" />
     </history-entry>
-    <history-entry file="Twisted_Trial_in_test_crawler_py - 2018.03.22 at 16h 21m 54s.xml">
-      <configuration name="Twisted Trial in test_crawler.py" configurationId="tests" />
+    <history-entry file="Twisted_Trial_in_test_csv_processing_py - 2018.03.23 at 11h 39m 46s.xml">
+      <configuration name="Twisted Trial in test_csv_processing.py" configurationId="tests" />
     </history-entry>
   </component>
   <component name="TodoView">
@@ -535,17 +540,15 @@
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32973805" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5121029" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40895063" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30401236" sideWeight="0.49394855" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.48789713" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819724" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.48411497" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22995462" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23373677" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39969134" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -553,7 +556,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Concurrent Activities Diagram" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -601,7 +606,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="optimize data from files to verticaDB and pyodbc engine,add logger,test,exceptions module" />
     <MESSAGE value="2018.03.22 modify" />
-    <option name="LAST_COMMIT_MESSAGE" value="2018.03.22 modify" />
+    <MESSAGE value="2018.03.22 fix go to BrandState bug" />
+    <option name="LAST_COMMIT_MESSAGE" value="2018.03.22 fix go to BrandState bug" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -610,32 +616,13 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_salesfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2299">
-          <caret line="125" column="34" lean-forward="false" selection-start-line="125" selection-start-column="16" selection-end-line="125" selection-end-column="34" />
-          <folding>
-            <element signature="e#194#224#0" expanded="true" />
-            <element signature="e#12233#12286#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_uvfile.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2451">
-          <caret line="133" column="107" lean-forward="false" selection-start-line="133" selection-start-column="107" selection-end-line="133" selection-end-column="107" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/processing_run.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1482">
           <caret line="86" column="28" lean-forward="false" selection-start-line="86" selection-start-column="28" selection-end-line="86" selection-end-column="28" />
           <folding>
             <element signature="e#191#230#0" expanded="true" />
-            <marker date="1521707018305" expanded="true" signature="1112:1185" ph="select * fro... sycm_user" />
+            <marker date="1521777162785" expanded="true" signature="1113:1186" ph="select * fro... sycm_user" />
           </folding>
         </state>
       </provider>
@@ -644,7 +631,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -652,9 +638,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="0" lean-forward="false" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#175#219#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -700,8 +684,8 @@
         <state relative-caret-position="1387">
           <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding>
-            <element signature="e#179#198#0" expanded="false" />
-            <element signature="e#4079#4431#0" expanded="false" />
+            <element signature="e#179#198#0" expanded="true" />
+            <element signature="e#4387#4415#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -729,7 +713,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="22" column="0" lean-forward="false" selection-start-line="22" selection-start-column="0" selection-end-line="23" selection-end-column="36" />
-          <folding />
+          <folding>
+            <element signature="e#13560#13623#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -739,7 +725,7 @@
           <caret line="110" column="48" lean-forward="true" selection-start-line="110" selection-start-column="48" selection-end-line="110" selection-end-column="48" />
           <folding>
             <element signature="e#191#230#0" expanded="true" />
-            <marker date="1521707018305" expanded="true" signature="1112:1185" ph="select * fro... sycm_user" />
+            <marker date="1521777162785" expanded="true" signature="1113:1186" ph="select * fro... sycm_user" />
           </folding>
         </state>
       </provider>
@@ -748,7 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -756,9 +741,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding>
-            <element signature="e#175#219#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -775,8 +758,8 @@
         <state relative-caret-position="1615">
           <caret line="88" column="25" lean-forward="false" selection-start-line="88" selection-start-column="25" selection-end-line="88" selection-end-column="25" />
           <folding>
-            <element signature="e#179#198#0" expanded="false" />
-            <element signature="e#4079#4431#0" expanded="false" />
+            <element signature="e#179#198#0" expanded="true" />
+            <element signature="e#4387#4415#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -809,7 +792,7 @@
           <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding>
             <element signature="e#191#230#0" expanded="true" />
-            <marker date="1521707018305" expanded="true" signature="1112:1185" ph="select * fro... sycm_user" />
+            <marker date="1521777162785" expanded="true" signature="1113:1186" ph="select * fro... sycm_user" />
           </folding>
         </state>
       </provider>
@@ -829,9 +812,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="285">
           <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding>
-            <element signature="e#175#219#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -839,7 +820,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4446">
           <caret line="234" column="7" lean-forward="false" selection-start-line="234" selection-start-column="7" selection-end-line="234" selection-end-column="7" />
-          <folding />
+          <folding>
+            <element signature="e#13560#13623#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -854,7 +837,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -933,12 +915,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/csv_processing.py">
+    <entry file="file://$PROJECT_DIR$/test/test_crawler.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1244">
-          <caret line="88" column="18" lean-forward="false" selection-start-line="88" selection-start-column="18" selection-end-line="88" selection-end-column="18" />
+        <state relative-caret-position="209">
+          <caret line="12" column="61" lean-forward="false" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/crawl_sales.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider/base_state.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="24" column="56" lean-forward="false" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/setup.bat">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/log/crawl_uv.log">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="38">
+          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="81" lean-forward="false" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_salesfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="130" column="52" lean-forward="false" selection-start-line="130" selection-start-column="52" selection-end-line="130" selection-end-column="52" />
           <folding>
-            <element signature="e#4079#4431#0" expanded="false" />
+            <element signature="e#194#224#0" expanded="true" />
+            <element signature="e#12233#12286#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/test_file_to_vertca.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vip.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="36" lean-forward="true" selection-start-line="3" selection-start-column="18" selection-end-line="3" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/table_frame.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_uvfile.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="171" column="43" lean-forward="false" selection-start-line="171" selection-start-column="43" selection-end-line="171" selection-end-column="43" />
+          <folding>
+            <element signature="e#13560#13623#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -965,114 +1027,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_file_to_vertca.py">
+    <entry file="file://$PROJECT_DIR$/test/test_csv_processing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test/test_crawler.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="12" column="61" lean-forward="false" selection-start-line="12" selection-start-column="61" selection-end-line="12" selection-end-column="70" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/crawl_sales.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/processing_run.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1073">
-          <caret line="63" column="60" lean-forward="false" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="60" />
-          <folding>
-            <element signature="e#191#230#0" expanded="true" />
-            <marker date="1521707018305" expanded="true" signature="1112:1185" ph="select * fro... sycm_user" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/spider/base_state.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="24" column="56" lean-forward="false" selection-start-line="24" selection-start-column="56" selection-end-line="24" selection-end-column="56" />
+        <state relative-caret-position="551">
+          <caret line="29" column="36" lean-forward="false" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/vip_spider.log">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
+        <state relative-caret-position="-2192">
           <caret line="24" column="69" lean-forward="true" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="69" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/setup.bat">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log/crawl_uv.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="2" column="0" lean-forward="false" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="81" lean-forward="false" selection-start-line="12" selection-start-column="81" selection-end-line="12" selection-end-column="81" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vip.cfg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/util/logger.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1368">
-          <caret line="72" column="23" lean-forward="true" selection-start-line="72" selection-start-column="23" selection-end-line="73" selection-end-column="48" />
+        <state relative-caret-position="648">
+          <caret line="72" column="20" lean-forward="false" selection-start-line="72" selection-start-column="9" selection-end-line="72" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_uvfile.py">
+    <entry file="file://$PROJECT_DIR$/processing_run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="171" column="43" lean-forward="false" selection-start-line="171" selection-start-column="43" selection-end-line="171" selection-end-column="43" />
+        <state relative-caret-position="21">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
-            <element signature="e#13560#13623#0" expanded="false" />
+            <element signature="e#191#230#0" expanded="true" />
+            <marker date="1521777162785" expanded="true" signature="1113:1186" ph="select * fro... sycm_user" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_salesfile.py">
+    <entry file="file://$PROJECT_DIR$/util/csv_processing.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="530">
-          <caret line="146" column="42" lean-forward="true" selection-start-line="146" selection-start-column="42" selection-end-line="146" selection-end-column="42" />
+        <state relative-caret-position="2213">
+          <caret line="123" column="66" lean-forward="false" selection-start-line="123" selection-start-column="66" selection-end-line="123" selection-end-column="66" />
           <folding>
-            <element signature="e#194#224#0" expanded="true" />
-            <element signature="e#12233#12286#0" expanded="false" />
+            <element signature="e#179#198#0" expanded="true" />
+            <element signature="e#4387#4415#0" expanded="false" />
           </folding>
         </state>
       </provider>

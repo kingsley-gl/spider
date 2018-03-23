@@ -10,7 +10,7 @@
 from util.get_engine import GetDBEngine
 import pandas as pd
 from multiprocessing import Process, Manager
-from util.csv_processing import SaveAsCSV
+from util.csv_processing import SaveAsCSVM
 from spider.vip_spider_download_salesfile import crawl_salesfile_data as d_sale
 from spider.vip_spider_download_uvfile import crawl_uvfile_data as d_uv
 from util.file_to_vertica import FileToDB
@@ -82,9 +82,9 @@ if __name__ == '__main__':
     p_uv.join()
 
     print('-------data anlysising start--------')
-    sac = SaveAsCSV(uv_path=raw_file_save_path+'\\uv',
-                    sale_path=raw_file_save_path+'\\sale',
-                    export_path=export_file_path) #导出类初始化
+    sac = SaveAsCSVM(files_paths=[raw_file_save_path+'\\uv', raw_file_save_path+'\\sale'],
+                     tb_frame_json='table_frame.json',
+                     export_path=export_file_path) #导出类初始化
     uv_file_list = [file for file in os.listdir(raw_file_save_path+'\\uv')]
     sale_file_list = [file for file in os.listdir(raw_file_save_path+'\\sale')]
     intersection = list(set(uv_file_list).intersection(set(sale_file_list)))  #取交集
