@@ -10,7 +10,6 @@ import sys
 
 class BaseException(Exception):
     def __init__(self,err=''):
-        print(self.__class__.__name__)
         err_msg = "%s at Line %d:%s in %s"%(self.__class__.__name__,sys.exc_info()[2].tb_lineno,
                                          err,
                                          sys.exc_info()[2].tb_frame.f_code.co_filename)

@@ -13,7 +13,6 @@ from util.logger import log
 import time
 
 
-
 class State(object):
     success_state = None
     fail_state = None
