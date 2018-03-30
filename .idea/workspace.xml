@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44436183-327e-47e6-88c6-bf9cc306c08b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/vip_spider.iml" afterPath="$PROJECT_DIR$/.idea/vip_spider.iml" />
+    <list default="true" id="44436183-327e-47e6-88c6-bf9cc306c08b" name="Default" comment="delete exception printing">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/geckodriver.log" afterPath="$PROJECT_DIR$/geckodriver.log" />
-      <change beforePath="$PROJECT_DIR$/spider/base_state.py" afterPath="$PROJECT_DIR$/spider/base_state.py" />
-      <change beforePath="$PROJECT_DIR$/util/exceptions.py" afterPath="$PROJECT_DIR$/util/exceptions.py" />
+      <change beforePath="$PROJECT_DIR$/run.bat" afterPath="$PROJECT_DIR$/run.bat" />
+      <change beforePath="$PROJECT_DIR$/setup.bat" afterPath="$PROJECT_DIR$/setup.bat" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -82,6 +80,7 @@
             <state relative-caret-position="1007">
               <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="20" />
               <folding>
+                <element signature="e#180#189#0" expanded="true" />
                 <marker date="1521706643770" expanded="true" signature="3480:3715" ph="INSERT INTO missing_value... " />
                 <marker date="1521706643770" expanded="true" signature="3518:3715" ph="SELECT * FRO... missing_value" />
                 <marker date="1521706643770" expanded="true" signature="3574:3713" ph="SELECT 1 FRO... activeCode" />
@@ -100,11 +99,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="processing_run.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="processing_run.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/processing_run.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="70" column="40" lean-forward="false" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+            <state relative-caret-position="257">
+              <caret line="54" column="46" lean-forward="false" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
               <folding>
                 <element signature="e#191#230#0" expanded="true" />
                 <marker date="1521777162785" expanded="true" signature="1113:1186" ph="select * fro... sycm_user" />
@@ -113,7 +112,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="exceptions.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="exceptions.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/util/exceptions.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="209">
@@ -198,7 +197,7 @@
     <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <push-targets>
-      <push-target-info target-remote="kingsley" target-branch="master" repo="$PROJECT_DIR$" source="master" />
+      <push-target-info target-remote="huimei" target-branch="master" repo="$PROJECT_DIR$" source="master" />
     </push-targets>
   </component>
   <component name="IdeDocumentHistory">
@@ -258,8 +257,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -281,6 +278,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -520,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521777933053</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="delete exception printing">
+      <created>1522130862258</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1522130862258</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -574,7 +580,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287037" sideWeight="0.48789713" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32819724" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3271605" sideWeight="0.48411497" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23567335" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24283667" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SciView" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -638,7 +644,8 @@
     <MESSAGE value="2018.03.22 modify" />
     <MESSAGE value="2018.03.22 fix go to BrandState bug" />
     <MESSAGE value="2018.3.23 modify ExtractDataM can import more than two files,change interfaces of SaveAsCSVM. add logger while write a csv file" />
-    <option name="LAST_COMMIT_MESSAGE" value="2018.3.23 modify ExtractDataM can import more than two files,change interfaces of SaveAsCSVM. add logger while write a csv file" />
+    <MESSAGE value="delete exception printing" />
+    <option name="LAST_COMMIT_MESSAGE" value="delete exception printing" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -674,6 +681,7 @@
         <state relative-caret-position="2907">
           <caret line="162" column="43" lean-forward="true" selection-start-line="162" selection-start-column="43" selection-end-line="162" selection-end-column="43" />
           <folding>
+            <element signature="e#180#189#0" expanded="true" />
             <marker date="1521706643770" expanded="true" signature="3480:3715" ph="INSERT INTO missing_value... " />
             <marker date="1521706643770" expanded="true" signature="3518:3715" ph="SELECT * FRO... missing_value" />
             <marker date="1521706643770" expanded="true" signature="3574:3713" ph="SELECT 1 FRO... activeCode" />
@@ -786,6 +794,7 @@
         <state relative-caret-position="3021">
           <caret line="168" column="24" lean-forward="true" selection-start-line="168" selection-start-column="24" selection-end-line="168" selection-end-column="24" />
           <folding>
+            <element signature="e#180#189#0" expanded="true" />
             <marker date="1521706643770" expanded="true" signature="3480:3715" ph="INSERT INTO missing_value... " />
             <marker date="1521706643770" expanded="true" signature="3518:3715" ph="SELECT * FRO... missing_value" />
             <marker date="1521706643770" expanded="true" signature="3574:3713" ph="SELECT 1 FRO... activeCode" />
@@ -976,7 +985,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="53" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1053,11 +1061,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/util/exceptions.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/util/file_to_vertica.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1007">
           <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="13" selection-end-line="59" selection-end-column="20" />
           <folding>
+            <element signature="e#180#189#0" expanded="true" />
             <marker date="1521706643770" expanded="true" signature="3480:3715" ph="INSERT INTO missing_value... " />
             <marker date="1521706643770" expanded="true" signature="3518:3715" ph="SELECT * FRO... missing_value" />
             <marker date="1521706643770" expanded="true" signature="3574:3713" ph="SELECT 1 FRO... activeCode" />
@@ -1077,20 +1094,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/processing_run.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="70" column="40" lean-forward="false" selection-start-line="70" selection-start-column="40" selection-end-line="70" selection-end-column="40" />
+        <state relative-caret-position="257">
+          <caret line="54" column="46" lean-forward="false" selection-start-line="54" selection-start-column="46" selection-end-line="54" selection-end-column="46" />
           <folding>
             <element signature="e#191#230#0" expanded="true" />
             <marker date="1521777162785" expanded="true" signature="1113:1186" ph="select * fro... sycm_user" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/util/exceptions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-          <folding />
         </state>
       </provider>
     </entry>
