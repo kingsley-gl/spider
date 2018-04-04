@@ -1,16 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="44436183-327e-47e6-88c6-bf9cc306c08b" name="Default" comment="2018.4.4 changging">
-      <change beforePath="" afterPath="$PROJECT_DIR$/python-2.7.14.amd64.msi" />
+    <list default="true" id="44436183-327e-47e6-88c6-bf9cc306c08b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/geckodriver.log" afterPath="$PROJECT_DIR$/geckodriver.log" />
-      <change beforePath="$PROJECT_DIR$/processing_run.py" afterPath="$PROJECT_DIR$/processing_run.py" />
-      <change beforePath="$PROJECT_DIR$/spider/vip_spider_download_salesfile.py" afterPath="$PROJECT_DIR$/spider/vip_spider_download_salesfile.py" />
-      <change beforePath="$PROJECT_DIR$/spider/vip_spider_download_uvfile.py" afterPath="$PROJECT_DIR$/spider/vip_spider_download_uvfile.py" />
-      <change beforePath="$PROJECT_DIR$/util/file_to_vertica.py" afterPath="$PROJECT_DIR$/util/file_to_vertica.py" />
       <change beforePath="$PROJECT_DIR$/util/logger.py" afterPath="$PROJECT_DIR$/util/logger.py" />
-      <change beforePath="$PROJECT_DIR$/vip.cfg" afterPath="$PROJECT_DIR$/vip.cfg" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -76,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="logger.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="logger.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/util/logger.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="17" />
+            <state relative-caret-position="350">
+              <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
               <folding>
                 <element signature="e#171#192#0" expanded="true" />
               </folding>
@@ -146,7 +139,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="vip_spider_download_uvfile.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="vip_spider_download_uvfile.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/spider/vip_spider_download_uvfile.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="3240">
@@ -226,11 +219,11 @@
         <option value="$PROJECT_DIR$/spider/base_state.py" />
         <option value="$PROJECT_DIR$/util/exceptions.py" />
         <option value="$PROJECT_DIR$/processing_run.py" />
-        <option value="$PROJECT_DIR$/util/logger.py" />
         <option value="$PROJECT_DIR$/util/file_to_vertica.py" />
         <option value="$PROJECT_DIR$/spider/vip_spider_download_salesfile.py" />
         <option value="$PROJECT_DIR$/spider/vip_spider_download_uvfile.py" />
         <option value="$PROJECT_DIR$/vip.cfg" />
+        <option value="$PROJECT_DIR$/util/logger.py" />
       </list>
     </option>
   </component>
@@ -538,7 +531,14 @@
       <option name="project" value="LOCAL" />
       <updated>1522403082730</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="2018.4.4 changging compass html click xpath, download button click xpath">
+      <created>1522831841740</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1522831841740</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -658,7 +658,8 @@
     <MESSAGE value="2018.3.23 modify ExtractDataM can import more than two files,change interfaces of SaveAsCSVM. add logger while write a csv file" />
     <MESSAGE value="delete exception printing" />
     <MESSAGE value="changging bat file's executing command" />
-    <option name="LAST_COMMIT_MESSAGE" value="changging bat file's executing command" />
+    <MESSAGE value="2018.4.4 changging compass html click xpath, download button click xpath" />
+    <option name="LAST_COMMIT_MESSAGE" value="2018.4.4 changging compass html click xpath, download button click xpath" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1059,16 +1060,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/util/logger.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="75" column="17" lean-forward="false" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="17" />
-          <folding>
-            <element signature="e#171#192#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/spider/base_state.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-551">
@@ -1115,6 +1106,16 @@
           <caret line="223" column="74" lean-forward="false" selection-start-line="223" selection-start-column="74" selection-end-line="223" selection-end-column="74" />
           <folding>
             <element signature="e#13560#13623#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/util/logger.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="350">
+          <caret line="25" column="21" lean-forward="false" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+          <folding>
+            <element signature="e#171#192#0" expanded="true" />
           </folding>
         </state>
       </provider>

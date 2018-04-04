@@ -12,6 +12,18 @@ import ConfigParser
 
 config = ConfigParser.ConfigParser()
 config.read('vip.cfg')
+path1 = config.get('SPIDER_LOG', 'uv_log_file_path')
+path2 = config.get('SPIDER_LOG', 'sale_log_file_path')
+path3 = config.get('SPIDER_LOG', 'database_log_file_path')
+path1 = os.path.abspath(os.path.dirname(path1))
+path2 = os.path.abspath(os.path.dirname(path2))
+path3 = os.path.abspath(os.path.dirname(path3))
+if not os.path.exists(path1):
+    os.makedirs(path1)
+if not os.path.exists(path2):
+    os.makedirs(path2)
+if not os.path.exists(path3):
+    os.makedirs(path3)
 
 
 LOGGING = {
