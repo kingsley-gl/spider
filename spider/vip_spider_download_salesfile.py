@@ -82,7 +82,7 @@ class NavigationState(State):
     def do(self, driver):
 
         self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
-                               xpath='//button[@aria-label="Close"]', operator='click')  # 点击：新功能导航页面关闭
+                               xpath="(//button[@type='button'])[7]", operator='click')  # 点击：新功能导航页面关闭
         return self.success_state
 
 class GoodsState(State):
@@ -97,10 +97,10 @@ class GoodsState(State):
     def do(self, driver):
         try:
             self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
-                                   xpath="//div[@id='compass-app-body']/div/div/div/ul/li[4]/div", operator='click')  # 点击：左栏第一级 商品
+                                   xpath="//div[@id='compass-app-body']/div/div/div/ul/li[5]/div", operator='click')  # 点击：左栏第一级 商品
             time.sleep(0.5)
             self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
-                                   xpath="//div[@id='compass-app-body']/div/div/div/ul/li[4]/ul/li", operator='click')  # 点击：左栏第二级 商品详情
+                                   xpath="//div[@id='compass-app-body']/div/div/div/ul/li[5]/ul/li", operator='click')  # 点击：左栏第二级 商品详情
             time.sleep(0.5)
             self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
                                    xpath="//div[@id='compass-app-body']/div[2]/div/div[2]/div/label[2]/span/span", operator='click')  # 点击：档期圆点
@@ -197,7 +197,7 @@ class ClickBrandState(State):
                 # SCHEDULE_LIST.append(a)  # 获取档期日期
 
                 self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
-                                       xpath="(//button[@type='button'])[2]", operator='click')   # 键盘操作：点击下载
+                                       xpath="(//button[@type='button'])[4]", operator='click')   # 键盘操作：点击下载
                 # time.sleep(TIMING)
             except Exception:
                 log.getLogger(self.logger_name)

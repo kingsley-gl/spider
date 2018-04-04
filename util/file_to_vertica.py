@@ -30,7 +30,7 @@ class FileToDB(object):
         self.files_path = files_path
         self._truncate_sql = lambda x: "TRUNCATE TABLE  %s " % x
         # self.debug = log.getLogger('spider_debug')
-        self.info = log.getLogger('spider_info')
+        self.info = log.getLogger('database')
 
     def _class_logger(*dargs, **dkwargs):
         '''日志装饰器'''

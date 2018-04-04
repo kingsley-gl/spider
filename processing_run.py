@@ -60,12 +60,12 @@ if __name__ == '__main__':
     if not os.path.exists(raw_file_save_path):
         os.makedirs(raw_file_save_path)
     p_sale = Process(target=d_sale,kwargs={
-                                        'login_user':login_user,
-                                        'password':password,
-                                        'download_path':raw_file_save_path,
-                                        'crawl_days':crawlDays,
-                                        'crawl_dates':crawlDates,
-                                        'share_list':[]
+                                        'login_user': login_user,
+                                        'password': password,
+                                        'download_path': raw_file_save_path,
+                                        'crawl_days': crawlDays,
+                                        'crawl_dates': crawlDates,
+                                        'share_list': []
                                     })
 
     p_uv = Process(target=d_uv, kwargs={
@@ -84,27 +84,30 @@ if __name__ == '__main__':
     print('-------data anlysising start--------')
     sac = SaveAsCSVM(files_paths=[raw_file_save_path+'\\uv', raw_file_save_path+'\\sale'],
                      tb_frame_json='table_frame.json',
-                     export_path=export_file_path) #导出类初始化
+                     export_path=export_file_path)  # 导出类初始化
     uv_file_list = [file for file in os.listdir(raw_file_save_path+'\\uv')]
     sale_file_list = [file for file in os.listdir(raw_file_save_path+'\\sale')]
-    intersection = list(set(uv_file_list).intersection(set(sale_file_list)))  #取交集
-    diff = list(set(uv_file_list).difference(set(sale_file_list)))  #取补集
+    intersection = list(set(uv_file_list).intersection(set(sale_file_list)))  # 取交集
+    diff = list(set(uv_file_list).difference(set(sale_file_list)))  # 取补集
     if not diff:
         for file in diff:
             print('%s 在文件夹里有缺失' % file)
     head = {'shop': shop}
     for file in intersection:   # 读取文件
         fileName = file.decode('gbk')
-        if os.path.isfile(raw_file_save_path+'\\uv'+r'\%s'% file) and\
-            os.path.isfile(raw_file_save_path+'\\sale'+r'\%s'% file):
+        if os.path.isfile(raw_file_save_path+'\\uv'+r'\%s' % file) and\
+            os.path.isfile(raw_file_save_path+'\\sale'+r'\%s' % file):
             active_code = fileName.split('_')[1]    # 获取档期码
-            head.update({u'档期唯一码(档期名称+日期)':active_code})
-            head.update({u'售卖时间':active_code[-8:]})
-            head.update({u'档期名称':active_code[:-9]})
+            head.update({u'档期唯一码(档期名称+日期)': active_code})
+            head.update({u'售卖时间': active_code[-8:]})
+            head.update({u'档期名称': active_code[:-9]})
             sac.save_process(file, **head)
     print('-------data anlysising end--------')
 
     ftd = FileToDB(db_engine=engine.vertica_engine(), files_path=export_file_path)
-    table_names = ['vip_active','vip_active_day','vip_active_hour','vip_return','vip_goods','vip_barCode','vip_region','vip_behind_goods']
+    table_names = ['vip_active', 'vip_active_day',
+                   'vip_active_hour', 'vip_return',
+                   'vip_goods', 'vip_barCode',
+                   'vip_region', 'vip_behind_goods']
     for table in table_names:
         ftd.files_to_verti(tb_name=table)
