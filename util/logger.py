@@ -9,6 +9,7 @@
 
 import logging.config
 import ConfigParser
+import os
 
 config = ConfigParser.ConfigParser()
 config.read('vip.cfg')
