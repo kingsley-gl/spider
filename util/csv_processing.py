@@ -14,7 +14,13 @@ import os
 import re
 import json
 from util.logger import log
+from util.exceptions import DataBaseExecuteError
+import sys
+reload(sys)
+sys.setdefaultencoding('utf8')
 logger = log.getLogger('spider_info')
+
+
 class ExtractDataM(object):
     def __init__(self, files, percentage_column, save_path=None):
         '''
@@ -25,7 +31,7 @@ class ExtractDataM(object):
         '''
         self.save_file_path = save_path #csv to save
         self.files = files
-        self.files_xls = map(pd.ExcelFile,self.files)
+        self.files_xls = map(pd.ExcelFile, self.files)
         self.column_dict = {}
         self.percentage_column = percentage_column #percentage column list
         self._result = None
@@ -39,10 +45,11 @@ class ExtractDataM(object):
         :param uv_sheet_name:
         :return:
         '''
+        # dfs = [pd.read_excel(file, encoding='utf-8') for file in self.files]
         dfs = map(pd.read_excel, self.files_xls)
         dfs = map(lambda x: x.dropna(axis=0), dfs)
 
-        for p_header in self.percentage_column: # 百分比数据处理
+        for p_header in self.percentage_column:  # 百分比数据处理
             for df in dfs:
                 if p_header in df.columns:
                     if len(df[p_header]) > 0:
@@ -67,16 +74,18 @@ class ExtractDataM(object):
 
         for i in range(len(target_dfs) - 1):
             if not i:
-                result_df = pd.merge(target_dfs[i], target_dfs[i+1], on=u'条形码')  # merge different dataframe
+                result_df = pd.merge(target_dfs[i], target_dfs[i+1],
+                                     suffixes=('', '_y'), on=u'条形码')  # merge different dataframe
             else:
-                result_df = pd.merge(result_df, target_dfs[i+1], on=u'条形码')
+                result_df = pd.merge(result_df, target_dfs[i+1],
+                                     suffixes=('', '_y'), on=u'条形码')
 
         for key in self.column_dict.keys():
             result_df[key] = self.column_dict[key]  # adding columns
         result_df = result_df.loc[:, headers]   # generate target dateframe
         return result_df
 
-    def write_to_csv(self,result):
+    def write_to_csv(self, result):
         '''
         导入csv
         :param result: drag_datas_from_header 得到的pandas表
@@ -90,6 +99,17 @@ class ExtractDataM(object):
             os.makedirs(self.save_file_path + ur'\%s' % self.table)
         result.to_csv(path_or_buf=path, header=False, index=False, encoding='utf-8')
 
+    def write_to_db(self, result, tb_name, con, header):
+        '''
+        导入csv
+        :param result: drag_datas_from_header 得到的pandas表
+
+        :return:
+        '''
+        result.columns = header
+        result = result.dropna(axis=1, how='all')
+        result.to_sql(name=tb_name, con=con, if_exists='append', index=False)
+
     def add_column(self, key, value):
         '''
         添加列
@@ -102,13 +122,22 @@ class ExtractDataM(object):
 
 class SaveAsCSVM(object):
 
-    def __init__(self, files_paths, tb_frame_json, export_path):
+    def __init__(self, files_paths, engine, tb_frame_json, export_path):
         self.files_paths = files_paths
         with open(tb_frame_json) as fp:
             j = json.load(fp)
             self.tables = j['tables']
             self.percentage_columns = j['percentageColumns']
         self.export_path = export_path
+        self.engine = engine
+
+    def __getattr__(self, item):
+        if item in 'connect':
+            try:
+                return self.engine.orm_vertica_engine()
+            except DataBaseExecuteError:
+                return None
+            super(object, self).__getattr__()
 
     def save_process(self, file_name, **kwargs):
         files_list = map(lambda x: '\\'.join((x, file_name)), self.files_paths)
@@ -121,8 +150,10 @@ class SaveAsCSVM(object):
         for table in self.tables:
             for key in table.keys():
                 e.table = key
-                ret = e.drag_datas_from_header(headers=table[key])
-                e.write_to_csv(ret)
+                ret = e.drag_datas_from_header(headers=table[key][0])
+                # e.write_to_csv(ret)
+                e.write_to_db(result=ret, tb_name=key + '_tmp1', con=self.connect, header=table[key][1])
+                # self.connect.close()
 
 
 # class ExtractData(object):

@@ -76,13 +76,14 @@ if __name__ == '__main__':
                                         'crawl_dates': crawlDates,
                                         'share_list': []
                                     })
-    p_sale.start()
-    p_uv.start()
-    p_sale.join()
-    p_uv.join()
+    # p_sale.start()
+    # p_uv.start()
+    # p_sale.join()
+    # p_uv.join()
 
     print('-------data anlysising start--------')
     sac = SaveAsCSVM(files_paths=[raw_file_save_path+'\\uv', raw_file_save_path+'\\sale'],
+                     engine=engine,
                      tb_frame_json='table_frame.json',
                      export_path=export_file_path)  # 导出类初始化
     uv_file_list = [file for file in os.listdir(raw_file_save_path+'\\uv')]
@@ -103,11 +104,10 @@ if __name__ == '__main__':
             head.update({u'档期名称': active_code[:-9]})
             sac.save_process(file, **head)
     print('-------data anlysising end--------')
-
-    ftd = FileToDB(db_engine=engine.vertica_engine(), files_path=export_file_path)
-    table_names = ['vip_active', 'vip_active_day',
-                   'vip_active_hour', 'vip_return',
-                   'vip_goods', 'vip_barCode',
-                   'vip_region', 'vip_behind_goods']
-    for table in table_names:
-        ftd.files_to_verti(tb_name=table)
+    # ftd = FileToDB(db_engine=engine.orm_vertica_engine(), files_path=export_file_path)
+    # table_names = ['vip_active', 'vip_active_day',
+    #                'vip_active_hour', 'vip_return',
+    #                'vip_goods', 'vip_barCode',
+    #                'vip_region', 'vip_behind_goods']
+    # for table in table_names:
+    #     ftd.files_to_verti(tb_name=table)

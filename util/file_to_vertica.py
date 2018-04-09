@@ -7,6 +7,7 @@
 # @Software: vip spider
 # @Function:
 
+import sqlalchemy
 import os
 from .exceptions import DataBaseExecuteError
 import time
@@ -14,8 +15,7 @@ import datetime
 import sys
 from util.logger import log
 import ConfigParser
-reload(sys)
-sys.setdefaultencoding('utf8')
+
 
 
 
