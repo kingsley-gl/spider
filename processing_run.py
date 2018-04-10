@@ -76,10 +76,10 @@ if __name__ == '__main__':
                                         'crawl_dates': crawlDates,
                                         'share_list': []
                                     })
-    # p_sale.start()
-    # p_uv.start()
-    # p_sale.join()
-    # p_uv.join()
+    p_sale.start()
+    p_uv.start()
+    p_sale.join()
+    p_uv.join()
 
     print('-------data anlysising start--------')
     sac = SaveAsCSVM(files_paths=[raw_file_save_path+'\\uv', raw_file_save_path+'\\sale'],
