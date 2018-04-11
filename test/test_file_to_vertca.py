@@ -15,5 +15,11 @@ config = ConfigParser.ConfigParser()
 config.read('../vip.cfg')
 engine = GetDBEngine(config)
 engine_vertica=engine.vertica_engine()
-ftb = FileToDB(engine_vertica,r'D:\share\vip_data')
-ftb.files_to_verti('vip_active')
+ftb = FileToDB(engine_vertica, r'D:\tmp_')
+table_names = ['vip_active', 'vip_active_day',
+               'vip_active_hour', 'vip_return',
+               'vip_goods', 'vip_barCode',
+                'vip_region', 'vip_behind_goods']
+for table in table_names:
+    ftb.files_to_verti(tb_name=table)
+

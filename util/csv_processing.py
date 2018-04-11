@@ -134,6 +134,10 @@ class SaveAsCSVM(object):
         self.export_path = export_path
         self.engine = engine
         self.chunksize = chunksize
+        for table in self.tables:
+            # table.keys()
+            map(lambda key: self.connect.connect().execute('TRUNCATE TABLE huimei.{table}'.format(table=key+'_tmp1')),
+                table.keys())
 
     def __getattr__(self, item):
         if item in 'connect':

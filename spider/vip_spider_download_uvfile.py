@@ -105,11 +105,11 @@ class GoodsState(State):
     def do(self, driver):
         try:
             self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
-                                   xpath="//div[@id='compass-app-body']/div/div/div/ul/li[5]/div",
+                                   xpath="//div[@id='compass-app-body']/div/div/div/ul/li[6]/div",
                                    operator='click')  # 点击：左栏第一级 商品
             time.sleep(0.5)
             self.browser_operation(driver=driver, locate_way='find_element_by_xpath',
-                                   xpath="//div[@id='compass-app-body']/div/div/div/ul/li[5]/ul/li",
+                                   xpath="//div[@id='compass-app-body']/div/div/div/ul/li[6]/ul/li",
                                    operator='click')  # 点击：左栏第二级 商品详情
             time.sleep(0.5)
             self.browser_operation(driver=driver, locate_way='find_element_by_xpath',

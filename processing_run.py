@@ -16,6 +16,7 @@ from spider.vip_spider_download_uvfile import crawl_uvfile_data as d_uv
 from util.file_to_vertica import FileToDB
 import ConfigParser
 import os
+import re
 
 config = ConfigParser.ConfigParser()
 config.read('vip.cfg')
@@ -97,16 +98,19 @@ if __name__ == '__main__':
         fileName = file.decode('gbk')
         if os.path.isfile(raw_file_save_path+'\\uv'+r'\%s' % file) and\
             os.path.isfile(raw_file_save_path+'\\sale'+r'\%s' % file):
-            active_code = fileName.split('_')[1]    # 获取档期码
-            head.update({u'档期唯一码(档期名称+日期)': active_code})
-            head.update({u'售卖时间': active_code[-8:]})
-            head.update({u'档期名称': active_code[:-9]})
+            pat = re.compile('-\d{8}')
+            date = re.findall(pat, fileName)[0]
+            active_code = fileName.split(date.encode('utf-8'))    # 获取档期码
+            a_code = ''.join([active_code[0].split('_')[1], date])
+            head.update({u'档期唯一码(档期名称+日期)': a_code})
+            head.update({u'售卖时间': a_code[-8:]})
+            head.update({u'档期名称': a_code[:-9]})
             sac.save_process(file, **head)
     print('-------data anlysising end--------')
-    # ftd = FileToDB(db_engine=engine.orm_vertica_engine(), files_path=export_file_path)
-    # table_names = ['vip_active', 'vip_active_day',
-    #                'vip_active_hour', 'vip_return',
-    #                'vip_goods', 'vip_barCode',
-    #                'vip_region', 'vip_behind_goods']
-    # for table in table_names:
-    #     ftd.files_to_verti(tb_name=table)
+    ftd = FileToDB(db_engine=engine.orm_vertica_engine(), files_path=export_file_path)
+    table_names = ['vip_active', 'vip_active_day',
+                   'vip_active_hour', 'vip_return',
+                   'vip_goods', 'vip_barCode',
+                   'vip_region', 'vip_behind_goods']
+    for table in table_names:
+        ftd.files_to_verti(tb_name=table)
