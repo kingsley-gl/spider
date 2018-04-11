@@ -21,11 +21,9 @@ config = ConfigParser.ConfigParser()
 config.read('vip.cfg')
 raw_file_save_path = config.get('Save_Path_Config', 'save_file_path_root')
 export_file_path = config.get('Export_Path_Config', 'export_path_root')
-# sales_log = config.get('Log_Path_Config', 'sales_log')
-# uv_log = config.get('Log_Path_Config', 'uv_log')
-# data_to_vert_log = config.get('Log_Path_Config', 'data_to_vert_log')
+chunksize = config.get('CHUNKSIZE_TOSQL', 'chunksize')
 engine = GetDBEngine(config)
-# manager = Manager()
+
 
 if __name__ == '__main__':
     print(u'爬虫运行开始')
@@ -85,7 +83,8 @@ if __name__ == '__main__':
     sac = SaveAsCSVM(files_paths=[raw_file_save_path+'\\uv', raw_file_save_path+'\\sale'],
                      engine=engine,
                      tb_frame_json='table_frame.json',
-                     export_path=export_file_path)  # 导出类初始化
+                     export_path=export_file_path,
+                     chunksize=chunksize)  # 导出类初始化
     uv_file_list = [file for file in os.listdir(raw_file_save_path+'\\uv')]
     sale_file_list = [file for file in os.listdir(raw_file_save_path+'\\sale')]
     intersection = list(set(uv_file_list).intersection(set(sale_file_list)))  # 取交集

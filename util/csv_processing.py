@@ -22,7 +22,7 @@ logger = log.getLogger('spider_info')
 
 
 class ExtractDataM(object):
-    def __init__(self, files, percentage_column, save_path=None):
+    def __init__(self, files, percentage_column, chunksize, save_path=None):
         '''
 
         :param files: files list
@@ -36,6 +36,7 @@ class ExtractDataM(object):
         self.percentage_column = percentage_column #percentage column list
         self._result = None
         self.table = None   #table name
+        self.chunksize = chunksize
 
     def drag_datas_from_header(self, headers):
         '''
@@ -68,7 +69,7 @@ class ExtractDataM(object):
 
         target_dfs = []
         for df, cols in zip(dfs, df_cols):
-            temp = df.loc[:, cols]  # getting header data
+            temp = df.reindex(columns=cols)  # getting header data
             temp = temp.sort_values(by=[u'条形码'])
             target_dfs.append(temp)
 
@@ -82,7 +83,7 @@ class ExtractDataM(object):
 
         for key in self.column_dict.keys():
             result_df[key] = self.column_dict[key]  # adding columns
-        result_df = result_df.loc[:, headers]   # generate target dateframe
+        result_df = result_df.reindex(columns=headers)  # generate target dateframe
         return result_df
 
     def write_to_csv(self, result):
@@ -108,7 +109,9 @@ class ExtractDataM(object):
         '''
         result.columns = header
         result = result.dropna(axis=1, how='all')
-        result.to_sql(name=tb_name, con=con, if_exists='append', index=False)
+        print('write {tb_name} in database'.format(tb_name=tb_name))
+        result.to_sql(name=tb_name, con=con, if_exists='append', index=False,
+                      chunksize=int(self.chunksize))
 
     def add_column(self, key, value):
         '''
@@ -122,7 +125,7 @@ class ExtractDataM(object):
 
 class SaveAsCSVM(object):
 
-    def __init__(self, files_paths, engine, tb_frame_json, export_path):
+    def __init__(self, files_paths, engine, tb_frame_json, export_path, chunksize):
         self.files_paths = files_paths
         with open(tb_frame_json) as fp:
             j = json.load(fp)
@@ -130,6 +133,7 @@ class SaveAsCSVM(object):
             self.percentage_columns = j['percentageColumns']
         self.export_path = export_path
         self.engine = engine
+        self.chunksize = chunksize
 
     def __getattr__(self, item):
         if item in 'connect':
@@ -144,7 +148,8 @@ class SaveAsCSVM(object):
 
         e = ExtractDataM(files=files_list,
                          save_path=self.export_path,
-                         percentage_column=self.percentage_columns)
+                         percentage_column=self.percentage_columns,
+                         chunksize=self.chunksize)
         for key in kwargs.keys():
             e.add_column(key, kwargs[key])
         for table in self.tables:
