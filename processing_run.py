@@ -17,14 +17,15 @@ from util.file_to_vertica import FileToDB
 import ConfigParser
 import os
 import re
+import shutil
 
 config = ConfigParser.ConfigParser()
 config.read('vip.cfg')
 raw_file_save_path = config.get('Save_Path_Config', 'save_file_path_root')
 export_file_path = config.get('Export_Path_Config', 'export_path_root')
+remove_file_path = config.get('USED_FILE_PATH', 'remove_path')
 chunksize = config.get('CHUNKSIZE_TOSQL', 'chunksize')
 engine = GetDBEngine(config)
-
 
 if __name__ == '__main__':
     print(u'爬虫运行开始')
@@ -94,6 +95,10 @@ if __name__ == '__main__':
         for file in diff:
             print('%s 在文件夹里有缺失' % file)
     head = {'shop': shop}
+    if not os.path.exists(remove_file_path+'\\uv'):
+        os.makedirs(remove_file_path+'\\uv')
+    if not os.path.exists(remove_file_path+'\\sale'):
+        os.makedirs(remove_file_path+'\\sale')
     for file in intersection:   # 读取文件
         fileName = file.decode('gbk')
         if os.path.isfile(raw_file_save_path+'\\uv'+r'\%s' % file) and\
@@ -106,6 +111,10 @@ if __name__ == '__main__':
             head.update({u'售卖时间': a_code[-8:]})
             head.update({u'档期名称': a_code[:-9]})
             sac.save_process(file, **head)
+            shutil.move(raw_file_save_path+'\\uv'+r'\%s' % file,
+                        remove_file_path+'\\uv'+r'\%s' % file)
+            shutil.move(raw_file_save_path + '\\sale' + r'\%s' % file,
+                        remove_file_path + '\\sale' + r'\%s' % file)
     print('-------data anlysising end--------')
     ftd = FileToDB(db_engine=engine.orm_vertica_engine(), files_path=export_file_path)
     table_names = ['vip_active', 'vip_active_day',
