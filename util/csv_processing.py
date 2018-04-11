@@ -38,7 +38,7 @@ class ExtractDataM(object):
         self.table = None   #table name
         self.chunksize = chunksize
 
-    def drag_datas_from_header(self, headers):
+    def drag_datas_from_header(self, headers, on):
         '''
         提取数据
         :param headers:
@@ -76,10 +76,10 @@ class ExtractDataM(object):
         for i in range(len(target_dfs) - 1):
             if not i:
                 result_df = pd.merge(target_dfs[i], target_dfs[i+1],
-                                     suffixes=('', '_y'), on=u'条形码')  # merge different dataframe
+                                     suffixes=('', '_y'), on=on)  # merge different dataframe
             else:
                 result_df = pd.merge(result_df, target_dfs[i+1],
-                                     suffixes=('', '_y'), on=u'条形码')
+                                     suffixes=('', '_y'), on=on)
 
         for key in self.column_dict.keys():
             result_df[key] = self.column_dict[key]  # adding columns
@@ -159,7 +159,7 @@ class SaveAsCSVM(object):
         for table in self.tables:
             for key in table.keys():
                 e.table = key
-                ret = e.drag_datas_from_header(headers=table[key][0])
+                ret = e.drag_datas_from_header(headers=table[key][0], on=u'条形码')
                 # e.write_to_csv(ret)
                 e.write_to_db(result=ret, tb_name=key + '_tmp1', con=self.connect, header=table[key][1])
 
