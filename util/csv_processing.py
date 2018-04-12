@@ -38,7 +38,7 @@ class ExtractDataM(object):
         self.table = None   #table name
         self.chunksize = chunksize
 
-    def drag_datas_from_header(self, headers, on):
+    def drag_datas_from_header(self, headers, on=None):
         '''
         提取数据
         :param headers:
